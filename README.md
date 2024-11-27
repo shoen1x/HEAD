@@ -36,11 +36,11 @@
 - [Projek Berkaitan](#projek-berkaitan)
 - [Format lain](#format-lain)
 - [Terjemahan](#-terjemahan)
-- [Contributing](#🤝-contributing)
-  - [Contributors](#🌟-contributors)
-- [Author](#👤-author)
-- [Malay Language Translator](#👤-malay-language-translator)
-- [Lesen](#📝-lesen)
+- [Contributing](#-contributing)
+  - [Contributors](#-contributors)
+- [Author](#-author)
+- [Malay Language Translator](#-malay-language-translator)
+- [Lesen](#-lesen)
 
 ## Minimum yang disyorkan
 
