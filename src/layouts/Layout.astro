@@ -1,0 +1,60 @@
+---
+import "~styles/main.css";
+import "~styles/normalize.css";
+import "~styles/variables.css";
+import Header from '~components/Header.astro';
+import Footer from '~components/Footer.astro';
+import Ogimage from '~assets/ogImage/ogImageh.png';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+
+const ogImageUrl = new URL(Ogimage.src, Astro.url);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Meta -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Head" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<title>&#x1F92F; {title}</title>
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:image" content={ogImageUrl} />
+
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:image" content={ogImageUrl} />
+	</head>
+	<body>
+		<div class="flex flex-col flex-wrap justify-between min-h-[100vh] px-[var(--spacing-4)] py-[var(--spacing-0)] mx-[var(--spacing-0)] sm:mx-auto my-[var(--spacing-4)]">
+			<Header />
+			<main class="w-[var(--max-width-full)] m-[var(--spacing-0)_auto]">
+				<slot />
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>
