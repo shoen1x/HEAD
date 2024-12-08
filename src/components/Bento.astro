@@ -1,9 +1,11 @@
 ---
+import Comment from "./stylize/comment.astro";
+import Element from "./stylize/element.astro";
 ---
 
-<div class="mt-4 grid gap-4 reverse lg:grid-cols-3 lg:grid-rows-2 mx-2">
+<div class="mt-4 grid gap-4 lg:grid-cols-3 lg:grid-rows-3 mx-2">
     <!--  -->
-    <div class="relative lg:row-span-2">
+    <div class="relative lg:row-span-1">
       <div class="absolute inset-px rounded-lg bg-white lg:rounded-l-[2rem]"></div>
       <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
         <div class="px-8 pb-3 pt-8 sm:px-10 sm:pb-0 sm:pt-10">
@@ -14,19 +16,19 @@
             Berikut adalah elemen penting untuk mana-mana dokumen web (laman web/apl):
           </p>
         </div>
-        <div class="relative w-full p-4 grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm">
-            <pre class="bg-[#20405c]"><code class="text-white whitespace-pre-line">
-                &lt;meta charset="utf-8"&gt;
-                &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-                <span class="text-green-500">
-                    ---
-                        2 meta tag di atas *mesti* didahulukan di <head>
-                        untuk memastikan penyampaian dokumen yang betul secara konsisten.
-                        Mana-mana elemen 'head' lain harus datang *selepas* tag ini.
-                    ---
-                </span>
-                &lt;title&gt;Page Title &lt;/title&gt;
-            </code></pre>
+        <div class="w-full p-4 grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm">
+            <pre class="bg-[#20405c] whitespace-nowrap">
+              <code class="text-white whitespace-pre-line">
+                <Element>meta charset="utf-8"</Element>
+                <Element>meta name="viewport" content="width=device-width, initial-scale=1"</Element>
+                <Comment>
+                    2 meta tag di atas *mesti* didahulukan di <head>
+                    untuk memastikan penyampaian dokumen yang betul secara konsisten.
+                    Mana-mana elemen 'head' lain harus datang *selepas* tag ini.
+                </Comment>
+                <Element>title</Element>Page Title<Element>/title</Element>
+              </code>
+            </pre>
         </div>
         <div class="px-8 pb-3 pt-8 sm:px-10 sm:pb-10 sm:pt-0">
             <p class="mt-2 max-w-lg text-sm/6 text-gray-600">
@@ -40,38 +42,148 @@
       <div class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-l-[2rem]"></div>
     </div>
     <!--  -->
-    <div class="relative ">
+    <div class="relative lg:row-span-2">
       <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem]"></div>
       <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]">
         <div class="px-8 pt-8 sm:px-10 sm:pt-10">
-          <p class="mt-2 text-2xl font-bold tracking-tight text-gray-950 max-lg:text-center">2. Bersambung</p>
-          <p class="mt-2 max-w-lg text-xl text-gray-600 max-lg:text-center">
-            akan disambung dalam masa terdekat. <br/>
+          <p class="mt-2 text-2xl font-bold tracking-tight text-gray-950 max-lg:text-center">2. Elemen</p>
+          <p class="mt-2 max-w-lg text-xl text-gray-600 max-lg:text-center whitespace-pre-line">
+            Elemen <code>&lt;head&gt;</code> yang sah termasuk `meta`, `link`, `title`, `style`, `script`, `noscript` dan `base`.
+            
+            Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat, dan disampaikan, oleh teknologi web. cth. pelayar, enjin carian, bot, dsb.
           </p>
         </div>
+        <div class="relative w-full p-4 grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm">
+          <pre class="bg-[#20405c]"><code class="text-white whitespace-pre-line">
+              <Comment>
+                  Tetapkan pengekodan aksara untuk dokumen ini, supaya
+                  semua aksara dalam ruang UTF-8 (seperti emoji)
+                  disampaikan dengan betul.
+              </Comment>
+              <Element>meta charset="utf-8"</Element>
+
+              <Comment>Tetapkan tajuk dokumen</Comment>
+              <Element>title</Element>Page Title<Element>title</Element>
+
+              <Comment>Tetapkan URL asas untuk semua URL relatif dalam dokumen</Comment>
+              <Element>base href="https://example.com/page.html"</Element>
+
+              <Comment>Pautan ke fail CSS luaran</Comment>
+              <Element>link rel="stylesheet" href="styles.css"</Element>
+
+              <Comment>Digunakan untuk menambah CSS dalam dokumen</Comment>
+              <Element>style</Element>
+                <Comment>Tetapkan URL asas untuk semua URL relatif dalam dokumen</Comment>
+                <Comment>/* ... */</Comment>
+              <Element>/style</Element>
+
+              <Comment>Tag JavaScript & Bukan JavaScript</Comment>
+              <Element>script src="script.js"</Element><Element>/script</Element>
+              <Element>script</Element>
+                <Comment>// function(s) ke sini</Comment>
+              <Element>/script</Element>
+              <Element>noscript</Element>
+                <Comment>Tiada alternatif JS</Comment>
+              <Element>/noscript</Element>
+          </code></pre>
+      </div>
       </div>
       <div class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem]"></div>
     </div>
     <!--  -->
-    <!-- <div class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
+    <div class="relative max-lg:row-start-3 lg:col-start-3 lg:row-start-1 lg:row-span-3">
       <div class="absolute inset-px rounded-lg bg-white"></div>
       <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)]">
         <div class="px-8 pt-8 sm:px-10 sm:pt-10">
-          <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">Security</p>
-          <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-            Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi.
-          </p>
+          <p class="mt-2 text-2xl font-bold tracking-tight text-gray-950 max-lg:text-center">3. Meta</p>
         </div>
-        <div class="flex flex-1 items-center [container-type:inline-size] max-lg:py-6 lg:pb-2">
-          <img
-            class="h-[min(152px,40cqw)] object-cover"
-            src="https://tailwindui.com/plus/img/component-images/bento-03-security.png"
-            alt=""
-          />
+        <div class="relative w-full p-4 grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm">
+          <pre class="bg-[#20405c]"><code class="text-white whitespace-pre-line">
+              <Comment>
+                  2 tag meta berikut *mesti* didahulukan di <head>
+                  untuk memastikan penyampaian dokumen yang betul secara konsisten.
+                  Mana-mana elemen `head` lain harus datang *selepas* tag ini.
+              </Comment>
+              <Element>meta charset="utf-8"</Element>
+              <Element>meta name="viewport" content="width=device-width, initial-scale=1"</Element>
+
+              <Comment>
+                Membenarkan kawalan ke atas tempat sumber dimuatkan.
+                Letakkan seawal mungkin di <head>, sebagai tag
+                hanya terpakai kepada sumber yang diisytiharkan selepasnya.
+              </Comment>
+              <Element>meta http-equiv="Content-Security-Policy" content="default-src 'self'"</Element>
+
+              <Comment>
+                Nama aplikasi web (hanya perlu digunakan jika laman web digunakan sebagai aplikasi)
+              </Comment>
+              <Element>meta name="application-name" content="Application Name"</Element>
+
+              <Comment>
+                Warna Tema untuk Chrome, Firefox OS dan Opera
+              </Comment>
+              <Element>meta name="theme-color" content="#4285f4"</Element>
+
+              <Comment>
+                Penerangan ringkas dokumen (had kepada 150 aksara)
+              </Comment>
+              <Comment>
+                Kandungan ini *boleh* digunakan sebagai sebahagian daripada hasil carian enjin.
+              </Comment>
+              <Element>meta name="description" content="A description of the page"</Element>
+
+              <Comment>Kawal tingkah laku rangkak (crawling) dan pengindeksan (indexing) enjin carian</Comment>
+              <Element>meta name="robots" content="index,follow"</Element><Comment>All Search Engines</Comment>
+              <Element>meta name="googlebot" content="index,follow"</Element><Comment>Google Specific</Comment>
+
+              <Comment>Memberitahu Google untuk tidak menunjukkan kotak carian pautan tapak</Comment>
+              <Element>meta name="google" content="nositelinkssearchbox"</Element>
+
+              <Comment>Beritahu Google supaya tidak menyediakan terjemahan untuk dokumen ini</Comment>
+              <Element>meta name="google" content="notranslate"</Element>
+
+              <Comment>Sahkan pemilikan laman web</Comment>
+              <Element>meta name="google-site-verification" content="verification_token"</Element><Comment>Konsol Carian Google</Comment>
+              <Element>meta name="yandex-verification" content="verification_token"</Element><Comment>Juruweb Yandex</Comment>
+              <Element>meta name="msvalidate.01" content="verification_token"</Element><Comment>Pusat Juruweb Bing</Comment>
+              <Element>meta name="alexaVerifyID" content="verification_token"</Element><Comment>Konsol Alexa</Comment>
+              <Element>meta name="p:domain_verify" content="code_from_pinterest"</Element><Comment>Konsol Pinterest</Comment>
+              <Element>meta name="norton-safeweb-site-verification" content="norton_code"</Element><Comment>Web Selamat Norton</Comment>
+
+              <Comment>Kenal pasti perisian yang digunakan untuk membina dokumen (iaitu - WordPress, Dreamweaver)</Comment>
+              <Element>meta name="generator" content="program"</Element>
+
+              <Comment>Penerangan ringkas tentang subjek dokumen anda</Comment>
+              <Element>meta name="subject" content="your document's subject"</Element>
+
+              <Comment>Memberikan penilaian umur umum berdasarkan kandungan dokumen</Comment>
+              <Element>meta name="rating" content="General"</Element>
+
+              <Comment>Membenarkan kawalan ke atas cara maklumat perujuk dihantar</Comment>
+              <Element>meta name="referrer" content="no-referrer"</Element>
+
+              <Comment>Lumpuhkan pengesanan automatik dan pemformatan yang berkemungkinan nombor telefon</Comment>
+              <Element>meta name="format-detection" content="telephone=no"</Element>
+
+              <Comment>Tarik diri sepenuhnya daripada pengambilan DNS (DNS Prefetching) dengan menetapkan kepada "off"</Comment>
+              <Element>meta http-equiv="x-dns-prefetch-control" content="off"</Element>
+
+              <Comment>Menentukan dokumen untuk muncul dalam bingkai tertentu</Comment>
+              <Element>meta http-equiv="Window-Target" content="_value"</Element>
+
+              <Comment>Tag geo</Comment>
+              <Element>meta name="ICBM" content="latitude, longitude"</Element>
+              <Element>meta name="geo.position" content="latitude;longitude"</Element>
+              <Element>meta name="geo.region" content="country[-state]"</Element><Comment>Kod Negara (ISO 3166-1): wajib, kod negeri (ISO 3166-2): pilihan; cth. content="MY" / content="MY-KL"</Comment>
+              <Element>meta name="geo.placename" content="city/town"</Element><Comment>cth. content="Bandar Kuala Lumpur"</Comment>
+
+              <Comment>Pengewangan Web https://webmonetization.org/docs/getting-started</Comment>
+              <Element>meta name="monetization" content="$paymentpointer.example"</Element>
+            </code></pre>
         </div>
       </div>
       <div class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"></div>
-    </div> -->
+    </div>
       <!--  -->
     <!-- <div class="relative lg:row-span-2">
       <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"></div>
