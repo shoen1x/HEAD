@@ -1,3 +1,3 @@
-export default function compilerString(inputString: string): string {
-    return inputString.toLowerCase().replace(/ /g, '-');
+export default function compilerString(inputString?: string): string {
+    return (inputString || '').toLowerCase().replace(/ /g, '-');
   }
