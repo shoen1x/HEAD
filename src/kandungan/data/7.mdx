@@ -1,0 +1,95 @@
+export const title = "Pelayar / Platform";
+
+### Apple iOS
+
+```html
+<!-- Sepanduk Apl Pintar -->
+<meta
+  name="apple-itunes-app"
+  content="app-id=APP_ID,affiliate-data=AFFILIATE_ID,app-argument=SOME_TEXT"
+/>
+
+<!-- Lumpuhkan pengesanan automatik dan pemformatan yang berkemungkinan nombor telefon -->
+<meta name="format-detection" content="telephone=no" />
+
+<!-- Ikon Pelancaran (180x180px atau lebih besar) -->
+<link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
+
+<!-- Pelancaran Imej Skrin -->
+<link rel="apple-touch-startup-image" href="/path/to/launch.png" />
+
+<!-- Pelancaran Tajuk Ikon -->
+<meta name="apple-mobile-web-app-title" content="App Title" />
+
+<!-- Dayakan mod kendiri (skrin penuh). -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<!-- Penampilan bar status (tiada kesan melainkan mod kendiri didayakan) -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<!-- Pautan dalam apl iOS -->
+<meta
+  name="apple-itunes-app"
+  content="app-id=APP-ID, app-argument=http/url-sample.com"
+/>
+<link rel="alternate" href="ios-app://APP-ID/http/url-sample.com" />
+```
+
+- 📖 [Mengkonfigurasi Aplikasi Web](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
+
+### Google Android
+
+```html
+<meta name="theme-color" content="#E64545" />
+
+<!-- Tambahkan pada skrin utama -->
+<meta name="mobile-web-app-capable" content="yes" />
+<!-- Info lanjut: https://developer.chrome.com/multidevice/android/installtohomescreen -->
+
+<!-- Pautan dalam apl Android -->
+<meta name="google-play-app" content="app-id=package-name" />
+<link rel="alternate" href="android-app://package-name/http/url-sample.com" />
+```
+
+### Google Chrome
+
+```html
+<link
+  rel="chrome-webstore-item"
+  href="https://chrome.google.com/webstore/detail/APP_ID"
+/>
+
+<!-- Lumpuhkan gesaan terjemahan -->
+<meta name="google" content="notranslate" />
+```
+
+### Microsoft Internet Explorer
+
+```html
+<!-- Paksa IE 8/9/10 untuk menggunakan enjin pemaparan terbaharunya -->
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+<!-- Lumpuhkan pengesanan automatik dan pemformatan yang berkemungkinan normbor telefon melalui sambungan penyemak imbas Skype Toolbar -->
+<meta name="skype_toolbar" content="skype_toolbar_parser_compatible" />
+
+<!-- Windows Tiles -->
+<meta name="msapplication-config" content="/browserconfig.xml" />
+```
+
+Penanda xml minimum yang diperlukan untuk `browserconfig.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+   <msapplication>
+     <tile>
+        <square70x70logo src="small.png"/>
+        <square150x150logo src="medium.png"/>
+        <wide310x150logo src="wide.png"/>
+        <square310x310logo src="large.png"/>
+     </tile>
+   </msapplication>
+</browserconfig>
+```
+
+- 📖 [Rujukan skema konfigurasi penyemak imbas](https://msdn.microsoft.com/en-us/library/dn320426.aspx)

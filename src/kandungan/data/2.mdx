@@ -1,0 +1,37 @@
+export const title = "Elemen";
+
+Elemen `<head>` yang sah termasuk `meta`, `link`, `title`, `style`, `script`, `noscript` dan `base`.
+
+Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat, dan disampaikan, oleh teknologi web. cth. pelayar, enjin carian, bot, dsb.
+
+```html
+<!--
+  Tetapkan pengekodan aksara untuk dokumen ini, supaya
+  semua aksara dalam ruang UTF-8 (seperti emoji)
+  disampaikan dengan betul.
+-->
+<meta charset="utf-8" />
+
+<!-- Tetapkan tajuk dokumen -->
+<title>Page Title</title>
+
+<!-- Tetapkan URL asas untuk semua URL relatif dalam dokumen -->
+<base href="https://example.com/page.html" />
+
+<!-- Pautan ke fail CSS luaran -->
+<link rel="stylesheet" href="styles.css" />
+
+<!-- Digunakan untuk menambah CSS dalam dokumen -->
+<style>
+  /* ... */
+</style>
+
+<!-- Tag JavaScript & Bukan JavaScript -->
+<script src="script.js"></script>
+<script>
+  // function(s) ke sini
+</script>
+<noscript>
+  <!-- Tiada alternatif JS -->
+</noscript>
+```

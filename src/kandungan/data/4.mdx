@@ -1,0 +1,97 @@
+export const title = "Pautan"
+
+```html
+<!-- Menunjuk pada lembaran gaya luaran -->
+<link rel="stylesheet" href="https://example.com/styles.css" />
+
+<!-- Membantu mengelakkan isu kandungan pendua -->
+<link rel="canonical" href="https://example.com/article/?page=2" />
+
+<!-- Pautan ke versi HTML AMP bagi dokumen semasa -->
+<link rel="amphtml" href="https://example.com/path/to/amp-version.html" />
+
+<!-- Pautan ke fail JSON yang menentukan kelayakan "pemasangan" untuk aplikasi web -->
+<link rel="manifest" href="manifest.json" />
+
+<!-- Pautan kepada maklumat tentang pengarang dokumen -->
+<link rel="author" href="humans.txt" />
+
+<!-- Merujuk kepada pernyataan hak cipta yang digunakan pada konteks pautan -->
+<link rel="license" href="copyright.html" />
+
+<!-- Memberi rujukan kepada lokasi dalam dokumen anda yang mungkin dalam bahasa lain -->
+<link rel="alternate" href="https://es.example.com/" hreflang="es" />
+
+<!-- Menyediakan maklumat tentang pengarang atau orang lain -->
+<link rel="me" href="https://google.com/profiles/thenextweb" type="text/html" />
+<link rel="me" href="mailto:name@example.com" />
+<link rel="me" href="sms:+15035550125" />
+
+<!-- Pautan kepada dokumen yang menerangkan koleksi rekod, dokumen atau bahan lain yang mempunyai kepentingan sejarah -->
+<link rel="archives" href="https://example.com/archives/" />
+
+<!-- Pautan ke sumber peringkat teratas dalam struktur hierarki -->
+<link rel="index" href="https://example.com/article/" />
+
+<!-- Menyediakan rujukan kendiri - berguna apabila dokumen mempunyai beberapa rujukan yang mungkin -->
+<link
+  rel="self"
+  type="application/atom+xml"
+  href="https://example.com/atom.xml"
+/>
+
+<!-- Dokumen pertama, terakhir, sebelumnya dan seterusnya dalam satu siri dokumen, masing-masing -->
+<link rel="first" href="https://example.com/article/" />
+<link rel="last" href="https://example.com/article/?page=42" />
+<link rel="prev" href="https://example.com/article/?page=1" />
+<link rel="next" href="https://example.com/article/?page=3" />
+
+<!-- Digunakan apabila perkhidmatan pihak ketiga (3rd party) digunakan untuk mengekalkan blog -->
+<link
+  rel="EditURI"
+  href="https://example.com/xmlrpc.php?rsd"
+  type="application/rsd+xml"
+  title="RSD"
+/>
+
+<!-- Membentuk ulasan automatik apabila blog WordPress lain dipautkan ke blog atau siaran WordPress anda -->
+<link rel="pingback" href="https://example.com/xmlrpc.php" />
+
+<!-- Memberitahu URL apabila anda memautkannya pada dokumen anda -->
+<link rel="webmention" href="https://example.com/webmention" />
+
+<!-- Membolehkan penyiaran ke domain anda sendiri menggunakan klien Micropub -->
+<link rel="micropub" href="https://example.com/micropub" />
+
+<!-- Buka Carian -->
+<link
+  rel="search"
+  href="/open-search.xml"
+  type="application/opensearchdescription+xml"
+  title="Search Title"
+/>
+
+<!-- Suapan -->
+<link
+  rel="alternate"
+  href="https://feeds.feedburner.com/example"
+  type="application/rss+xml"
+  title="RSS"
+/>
+<link
+  rel="alternate"
+  href="https://example.com/feed.atom"
+  type="application/atom+xml"
+  title="Atom 0.3"
+/>
+
+<!-- prapengambilan (prefetching), pramuat (preloading), prapelayar (prebrowsing) -->
+<!-- Info lanjut: https://css-tricks.com/prefetching-preloading-prebrowsing/ -->
+<link rel="dns-prefetch" href="//example.com/" />
+<link rel="preconnect" href="https://www.example.com/" />
+<link rel="prefetch" href="https://www.example.com/" />
+<link rel="prerender" href="https://example.com/" />
+<link rel="preload" href="image.png" as="image" />
+```
+
+- 📖 [Link Relations](https://www.iana.org/assignments/link-relations/link-relations.xhtml)

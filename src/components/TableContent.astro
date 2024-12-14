@@ -1,0 +1,29 @@
+---
+import PStyle from "~components/modular/p.svelte";
+import PreStyle from "~components/modular/pre.svelte";
+import UlStyle from "~components/modular/ul.svelte";
+import LiStyle from "~components/modular/li.svelte";
+import { Content, components } from "~kandungan/tableofcontent.mdx";
+---
+
+<div class="absolute bottom-0 left-0 z-10">
+    <div class="sticky flex flex-col top-24 w-full h-full p-4 mt-4 mx-2">
+        <div class="relative flex-1 w-full h-full max-h-[50vh] inset-px rounded-lg bg-white max-w-screen-md overflow-y-scroll">
+            <div class="relative px-8 pb-3 pt-8 sm:px-10 sm:pb-0 sm:pt-10">
+                <p class="text-2xl lg:text-4xl font-bold tracking-tight text-gray-950 max-lg:text-center">
+                  Kandungan
+                </p>
+              </div>
+            <div
+                class="relative flex h-full w-full flex-col rounded-[calc(theme(borderRadius.lg)+1px)]"
+            >
+            <Content components={{
+                p: PStyle,
+                pre: PreStyle,
+                ul: UlStyle,
+                li: LiStyle
+            }}/>
+            </div>
+        </div>
+    </div>
+</div>

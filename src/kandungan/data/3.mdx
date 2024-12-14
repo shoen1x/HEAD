@@ -1,0 +1,102 @@
+export const title = "Meta"
+
+```html
+<!--
+  2 tag meta berikut *mesti* didahulukan di <head>
+  untuk memastikan penyampaian dokumen yang betul secara konsisten.
+  Mana-mana elemen `head` lain harus datang *selepas* tag ini.
+-->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!--
+  Membenarkan kawalan ke atas tempat sumber dimuatkan.
+  Letakkan seawal mungkin di <head>, sebagai tag
+  hanya terpakai kepada sumber yang diisytiharkan selepasnya.
+-->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'" />
+
+<!-- Nama aplikasi web (hanya perlu digunakan jika laman web digunakan sebagai aplikasi) -->
+<meta name="application-name" content="Application Name" />
+
+<!-- Warna Tema untuk Chrome, Firefox OS dan Opera -->
+<meta name="theme-color" content="#4285f4" />
+
+<!-- Penerangan ringkas dokumen (had kepada 150 aksara) -->
+<!-- Kandungan ini *boleh* digunakan sebagai sebahagian daripada hasil carian enjin. -->
+<meta name="description" content="A description of the page" />
+
+<!-- Kawal tingkah laku rangkak (crawling) dan pengindeksan (indexing) enjin carian -->
+<meta name="robots" content="index,follow" /><!-- All Search Engines -->
+<meta name="googlebot" content="index,follow" /><!-- Google Specific -->
+
+<!-- Memberitahu Google untuk tidak menunjukkan kotak carian pautan tapak -->
+<meta name="google" content="nositelinkssearchbox" />
+
+<!-- Beritahu Google supaya tidak menyediakan terjemahan untuk dokumen ini -->
+<meta name="google" content="notranslate" />
+
+<!-- Sahkan pemilikan laman web -->
+<meta
+  name="google-site-verification"
+  content="verification_token"
+/><!-- Konsol Carian Google -->
+<meta
+  name="yandex-verification"
+  content="verification_token"
+/><!-- Juruweb Yandex -->
+<meta
+  name="msvalidate.01"
+  content="verification_token"
+/><!-- Pusat Juruweb Bing -->
+<meta name="alexaVerifyID" content="verification_token" /><!-- Konsol Alexa -->
+<meta
+  name="p:domain_verify"
+  content="code_from_pinterest"
+/><!-- Konsol Pinterest-->
+<meta
+  name="norton-safeweb-site-verification"
+  content="norton_code"
+/><!-- Web Selamat Norton -->
+
+<!-- Kenal pasti perisian yang digunakan untuk membina dokumen (iaitu - WordPress, Dreamweaver) -->
+<meta name="generator" content="program" />
+
+<!-- Penerangan ringkas tentang subjek dokumen anda -->
+<meta name="subject" content="your document's subject" />
+
+<!-- Memberikan penilaian umur umum berdasarkan kandungan dokumen -->
+<meta name="rating" content="General" />
+
+<!-- Membenarkan kawalan ke atas cara maklumat perujuk dihantar -->
+<meta name="referrer" content="no-referrer" />
+
+<!-- Lumpuhkan pengesanan automatik dan pemformatan yang berkemungkinan nombor telefon -->
+<meta name="format-detection" content="telephone=no" />
+
+<!-- Tarik diri sepenuhnya daripada pengambilan DNS (DNS Prefetching) dengan menetapkan kepada "off" -->
+<meta http-equiv="x-dns-prefetch-control" content="off" />
+
+<!-- Menentukan dokumen untuk muncul dalam bingkai tertentu -->
+<meta http-equiv="Window-Target" content="_value" />
+
+<!-- Tag geo -->
+<meta name="ICBM" content="latitude, longitude" />
+<meta name="geo.position" content="latitude;longitude" />
+<meta
+  name="geo.region"
+  content="country[-state]"
+/><!-- Kod Negara (ISO 3166-1): wajib, kod negeri (ISO 3166-2): pilihan; cth. content="MY" / content="MY-KL" -->
+<meta
+  name="geo.placename"
+  content="city/town"
+/><!-- cth. content="Bandar Kuala Lumpur" -->
+
+<!-- Pengewangan Web https://webmonetization.org/docs/getting-started -->
+<meta name="monetization" content="$paymentpointer.example" />
+```
+
+- 📖 [Tag meta yang Google faham](https://support.google.com/webmasters/answer/79812?hl=en)
+- 📖 [WHATWG Wiki: MetaExtensions](https://wiki.whatwg.org/wiki/MetaExtensions)
+- 📖 [ICBM di Wikipedia](https://en.wikipedia.org/wiki/ICBM_address#Modern_use)
+- 📖 [Geotagging di Wikipedia](https://en.wikipedia.org/wiki/Geotagging#HTML_pages)

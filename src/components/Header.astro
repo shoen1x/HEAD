@@ -1,11 +1,21 @@
 ---
-import headLogo from '~assets/brand/headlogo-dark.svg';
+import headLogo from "~assets/brand/headlogo-dark.svg";
+import NMVX from "~assets/nmvxlogo.svg";
 ---
 
 <header class="sticky top-0 left-0 w-full h-auto p-2 z-50">
-    <nav class="flex items-center justify-center flex-wrap backdrop-blur-lg bg-[#20405c]/80 p-6 rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-[calc(2rem+1px)] drop-shadow-md">
-        <div class="flex items-center flex-shrink-0 text-white mr-6">
-          <a href="https://shoen1x.github.io"><img src={headLogo.src} width="115" height="48" alt="Head by NMVX Homepage" /></a>
-        </div>
-      </nav>
+  <nav
+    class="flex items-center justify-center flex-wrap backdrop-blur-lg bg-[#20405c]/80 p-6 rounded-[calc(theme(borderRadius.lg)+1px)] drop-shadow-md"
+  >
+    <div class="inline-flex justify-center flex-row text-white mr-6">
+      <a href="https://shoen1x.github.io"
+        ><img
+          src={headLogo.src}
+          width="115"
+          height="48"
+          alt="Head by NMVX Homepage"
+        /></a
+      >
+    </div>
+  </nav>
 </header>
