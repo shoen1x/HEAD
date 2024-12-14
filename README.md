@@ -19,7 +19,7 @@
   - [Privasi Twitter](#privasi-twitter)
   - [Schema.org](#schemaorg)
   - [Pinterest](#pinterest)
-  - [Artikel Segera Facebook](#artikel-Segera-Facebook)
+  - [Artikel Segera Facebook](#artikel-segera-facebook)
   - [OEmbed](#oembed)
   - [QQ/Wechat](#qqwechat)
 - [Pelayar / Platform](#pelayar--platform)
@@ -65,7 +65,7 @@ Berikut adalah elemen penting untuk mana-mana dokumen web (laman web/apl):
 
 `initial-scale=1` - zum permulaan, 1 bermaksud tiada zum
 
-**[⬆ kembali ke atas](#Kandungan)**
+**[⬆ kembali ke atas](#kandungan)**
 
 ## Elemen
 
@@ -105,7 +105,7 @@ Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat
 </noscript>
 ```
 
-**[⬆ kembali ke atas](#Kandungan)**
+**[⬆ kembali ke atas](#kandungan)**
 
 ## Meta
 
@@ -210,7 +210,7 @@ Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat
 - 📖 [ICBM di Wikipedia](https://en.wikipedia.org/wiki/ICBM_address#Modern_use)
 - 📖 [Geotagging di Wikipedia](https://en.wikipedia.org/wiki/Geotagging#HTML_pages)
 
-**[⬆ kembali ke atas](#Kandungan)**
+**[⬆ kembali ke atas](#kandungan)**
 
 ## Pautan
 
@@ -333,7 +333,7 @@ Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat
 - 📖 [Favicon Cheat Sheet](https://github.com/audreyr/favicon-cheat-sheet)
 - 📖 [Ikon & Warna Pelayar](https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/)
 
-**[⬆ kembali ke atas](#Kandungan)**
+**[⬆ kembali ke atas](#kandungan)**
 
 ## Sosial
 
@@ -477,7 +477,7 @@ Pengguna berkongsi halaman web ke qq wechat akan mempunyai mesej berformat
 
 - 📖 [Dokumen Format Kod](http://open.mobile.qq.com/api/mqq/index#api:setShareInfo)
 
-**[⬆ kembali ke atas](#Kandungan)**
+**[⬆ kembali ke atas](#kandungan)**
 
 ## Pelayar / Platform
 
@@ -575,7 +575,7 @@ Penanda xml minimum yang diperlukan untuk `browserconfig.xml`:
 
 - 📖 [Rujukan skema konfigurasi penyemak imbas](https://msdn.microsoft.com/en-us/library/dn320426.aspx)
 
-**[⬆ kembali ke atas](#Kandungan)**
+**[⬆ kembali ke atas](#kandungan)**
 
 ## Pelayar (Bahasa Cina)
 
@@ -626,7 +626,7 @@ Penanda xml minimum yang diperlukan untuk `browserconfig.xml`:
 
 - 📖 [Dokumen UC Browser](https://www.uc.cn/download/UCBrowser_U3_API.doc)
 
-**[⬆ kembali ke atas](#Kandungan)**
+**[⬆ kembali ke atas](#kandungan)**
 
 ## Pautan Apl
 
@@ -647,14 +647,14 @@ Penanda xml minimum yang diperlukan untuk `browserconfig.xml`:
 
 - 📖 [Pautan Aplikasi](https://developers.facebook.com/docs/applinks)
 
-**[⬆ kembali ke atas](#Kandungan)**
+**[⬆ kembali ke atas](#kandungan)**
 
 ## Sumber Lain
 
 - 📖 [HTML5 Boilerplate Docs: The HTML](https://github.com/h5bp/html5-boilerplate/blob/master/dist/doc/html.md)
 - 📖 [HTML5 Boilerplate Docs: Extend and customize](https://github.com/h5bp/html5-boilerplate/blob/master/dist/doc/extend.md)
 
-**[⬆ kembali ke atas](#Kandungan)**
+**[⬆ kembali ke atas](#kandungan)**
 
 ## Projek Berkaitan
 
@@ -663,13 +663,13 @@ Penanda xml minimum yang diperlukan untuk `browserconfig.xml`:
 - [head-it](https://github.com/hemanth/head-it) - Antara muka CLI untuk coretan `HEAD`
 - [vue-head](https://github.com/ktquez/vue-head) - Memanipulasi maklumat meta teg `HEAD` untuk Vue.js
 
-**[⬆ kembali ke atas](#Kandungan)**
+**[⬆ kembali ke atas](#kandungan)**
 
 ## Format Lain
 
 - 📄 [PDF](https://gitprint.com/joshbuchea/HEAD/blob/master/README.md)
 
-**[⬆ kembali ke atas](#Kandungan)**
+**[⬆ kembali ke atas](#kandungan)**
 
 ## 🌐 Terjemahan
 
@@ -685,7 +685,7 @@ Penanda xml minimum yang diperlukan untuk `browserconfig.xml`:
 - 🇪🇸 [Spanish](https://github.com/alvaroadlf/HEAD)
 - 🇹🇷 [Turkish/Türkçe](https://github.com/mkg0/HEAD)
 
-**[⬆ kembali ke atas](#Kandungan)**
+**[⬆ kembali ke atas](#kandungan)**
 
 ## 🤝 Contributing
 
@@ -749,4 +749,4 @@ Everything helps, thanks! 🙏
 
 [![CC0](https://i.creativecommons.org/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
 
-**[⬆ kembali ke atas](#Kandungan)**
+**[⬆ kembali ke atas](#kandungan)**
