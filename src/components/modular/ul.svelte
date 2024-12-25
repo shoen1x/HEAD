@@ -2,6 +2,6 @@
     let { children } = $props();
 </script>
 
-<ul class="w-full h-full my-2 lg:my-4">
+<ul class="my-1 lg:my-2 list-disc list-inside marker:text-[#20405c]">
     {@render children?.()}
 </ul>
