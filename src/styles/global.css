@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+  ::-moz-selection {
+		color: var(--color-black);
+		background-color: var(--color-nmvx-main);
+	}
+	::selection {
+		color: black;
+		background: #212949;
+	}
+  :root{
+    font-family: "Inter", sans-serif;
+    height: 100%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #161718;
+}
+
+/* h1 {
+  font-size: 42px;
+  margin-top: 0.25em;
+}
+
+h2 {
+  margin: 0 0 1em;
+  font-weight: normal;
+  font-size: 40px;
+}
+
+p {
+  font-size: 18px;
+  margin: 0 0 0.4em;
+} */
+
+/* pre {
+  width: 100%;
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+    Consolas, "DejaVu Sans Mono", monospace;
+  font-weight: normal;
+  border-radius: 8px;
+  padding: 4px;
+  margin: 0;
+} */
+
+/* code {
+  display: inline-block;
+  border-radius: 8px;
+  background-color: #20405c9a;
+  border: 1px solid transparent;
+  color: white;
+  padding: 3px 8px;
+} */

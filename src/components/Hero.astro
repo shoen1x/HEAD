@@ -2,60 +2,74 @@
 import HeadLogo from "~assets/brand/headlogo-dark.svg";
 import Background from "~assets/background.svg";
 import Github from "~assets/github.svg";
+import { Picture } from 'astro:assets';
+import MinDisyorkan from "~kandungan/data/MinDisyorkan.astro";
 ---
 
 <div id="container" class="text-white m-2 md:flex md:flex-col">
-  <img
-    id="background"
-    class="fixed top-0 left-0 w-full h-full -z-[1] blur-[100px]"
-    src={Background.src}
-    alt=""
-    fetchpriority="high"
-  />
+  <div class="inline-block relative w-full h-full overflow-hidden rounded-lg">
+    <Picture
+      id="background"
+      class="fixed top-0 left-0 w-full h-full -z-1 blur-3xl"
+      src={Background}
+      alt="Nirduan Crystalis Blue Background"
+      formats={['avif', 'webp']}
+    />
+    <div class="absolute left-0 top-0 h-full w-full"></div>
+  </div>
   <main class="h-full flex justify-center w-full md:block">
-    <section class="flex align-start flex-col items-center justify-center m-10">
-      <img
-        src={HeadLogo.src}
-        width="720"
-        height="215"
-        alt="Head by NMVX Homepage"
-      />
-      <h1 class="font-bold">
-        Panduan ringkas untuk elemen <code>&#60;head&#62;</code> HTML
-      </h1>
-      <h3>
-        terjemahan dalam bahasa melayu oleh <a
-          class="font-medum underline"
-          href="https://github.com/shoen1x">shoen1x</a>
-      </h3>
-      <div class="flex flex-row w-full h-full gap-4 justify-center pt-4">
-        <a
-          class="font-medium underline"
-          href="https://github.com/shoen1x/HEAD/graphs/contributors"
-          ><img
-            src="https://img.shields.io/github/contributors/shoen1x/HEAD?style=for-the-badge&label=Penyumbang"
-            class="rounded-lg"
-            alt="lambang perisai Penyumbang"
-          /></a
-        >
-        <a
-          class="font-medium underline"
-          href="https://creativecommons.org/publicdomain/zero/1.0/"
-          ><img
-            src="https://img.shields.io/badge/license-CC0-green.svg?style=for-the-badge&label=Lesen"
-            class="rounded-lg"
-            alt="lambang perisai Penyumbang"
-          /></a
-        >
-        <a href="https://github.com/shoen1x/HEAD" class="font-medium underline"
-          ><img
-            src={Github.src}
-            width="28"
-            height="28"
-            alt="lambang github"
-          /></a
-        >
+    <section class="flex flex-col lg:flex-row items-center justify-between m-0.5 lg:m-10 gap-4 lg:gap-12">
+      <div class="flex flex-col items-center lg:max-w-[512px] gap-4 lg:gap-6">
+        <div class="inline-block relative h-full items-center justify-center w-auto overflow-hidden">
+          <Picture
+            src={HeadLogo}
+            alt="Head by NMVX Homepage"
+            id="Head Logo"
+            width="512"
+            formats={['avif', 'webp']}
+          />
+          <div class="absolute left-0 top-0 h-full w-full"></div>
+        </div>
+        <h1 class="font-bold text-9xl">
+          Panduan ringkas untuk elemen <code>&#60;head&#62;</code> HTML
+        </h1>
+        <div class="flex flex-col h-full w-full justify-start items-start gap-4">
+          <h4>
+            Terjemahan dalam <abbr title="Malay (بهاس ملايو) is an Austronesian language that is an official language of Brunei, Malaysia, and Singapore.">Bahasa Melayu</abbr> oleh <a
+              class="font-medium underline"
+              href="https://nmvx.vercel.app/">shoen1x</a>
+          </h4>
+          <div class="flex flex-row w-full h-full justify-start gap-4">
+            <a
+              class="font-medium underline"
+              href="https://github.com/shoen1x/HEAD/graphs/contributors"
+              ><img
+                src="https://img.shields.io/github/contributors/shoen1x/HEAD?style=for-the-badge&label=Penyumbang"
+                class="rounded-lg"
+                alt="lambang perisai Penyumbang"
+              /></a
+            >
+            <a
+              class="font-medium underline"
+              href="https://creativecommons.org/publicdomain/zero/1.0/"
+              ><img
+                src="https://img.shields.io/badge/license-CC0-green.svg?style=for-the-badge&label=Lesen"
+                class="rounded-lg"
+                alt="lambang perisai Penyumbang"
+              /></a
+            >
+            <a href="https://github.com/shoen1x/HEAD" class="font-medium underline"
+              ><img
+                src={Github.src}
+                width="28"
+                height="28"
+                alt="lambang github"
+              /></a
+            >
+          </div>
+        </div>
       </div>
+      <MinDisyorkan />
     </section>
   </main>
 </div>

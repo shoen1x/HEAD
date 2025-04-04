@@ -1,0 +1,32 @@
+---
+import { Code } from 'astro:components';
+
+let code = `<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--
+  2 meta tag di atas *mesti* didahulukan di <head>
+  untuk memastikan penyampaian dokumen yang betul secara konsisten.
+  Mana-mana elemen <Head> lain harus datang *selepas* tag ini.
+ -->
+<title>Page Title</title>
+`
+---
+
+<div class="relative flex justify-center items-start flex-col gap-2.5 lg:gap-4 bg-black/25 backdrop-blur-3xl p-4 lg:p-12 rounded-lg">
+    <h1>
+      Minimum yang disyorkan
+    </h1>
+    <h2>
+      Berikut adalah elemen penting untuk mana-mana dokumen web (laman web/apl):
+    </h2>
+    <Code class="whitespace-pre-wrap flex justify-start p-4 rounded-lg" {code} lang="html" />
+    <p class="inline-block relative whitespace-pre-line">
+      <b>`meta charset`</b> - mentakrifkan pengekodan (encoding) laman web, `utf-8` ialah standard
+
+      <b>`meta name="viewport"`</b> - tetapan viewport yang berkaitan dengan responsif antara muka mudah alih
+
+      <b>`width=device-width`</b> - gunakan lebar fizikal peranti (bagus untuk antara muka mudah alih!)
+
+      <b>`initial-scale=1`</b> - zum permulaan, 1 bermaksud tiada zum
+    </p>
+</div>
