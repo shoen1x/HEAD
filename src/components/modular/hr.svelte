@@ -1,0 +1,1 @@
+<div id="stripe" class="bg-white/25 backdrop-blur-3xl mb-12 mt-4 block h-[2px] w-full rounded-lg"></div>

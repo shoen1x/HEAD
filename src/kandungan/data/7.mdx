@@ -1,99 +1,56 @@
 ---
-title: "Pelayar / Platform"
+title: "Pelayar (Bahasa Cina)"
 ---
 
-export const title = "Pelayar / Platform"
+export const title = "Pelayar (Bahasa Cina)"
 
-### Apple iOS
-
-```html
-<!-- Sepanduk Apl Pintar -->
-<meta
-  name="apple-itunes-app"
-  content="app-id=APP_ID,affiliate-data=AFFILIATE_ID,app-argument=SOME_TEXT"
-/>
-
-<!-- Lumpuhkan pengesanan automatik dan pemformatan yang berkemungkinan nombor telefon -->
-<meta name="format-detection" content="telephone=no" />
-
-<!-- Ikon Pelancaran (180x180px atau lebih besar) -->
-<link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
-
-<!-- Pelancaran Imej Skrin -->
-<link rel="apple-touch-startup-image" href="/path/to/launch.png" />
-
-<!-- Pelancaran Tajuk Ikon -->
-<meta name="apple-mobile-web-app-title" content="App Title" />
-
-<!-- Dayakan mod kendiri (skrin penuh). -->
-<meta name="apple-mobile-web-app-capable" content="yes" />
-
-<!-- Penampilan bar status (tiada kesan melainkan mod kendiri didayakan) -->
-<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
-<!-- Pautan dalam apl iOS -->
-<meta
-  name="apple-itunes-app"
-  content="app-id=APP-ID, app-argument=http/url-sample.com"
-/>
-<link rel="alternate" href="ios-app://APP-ID/http/url-sample.com" />
-```
-
-- 📖 [Mengkonfigurasi Aplikasi Web](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
-
-### Google Android
+### 360 Browser
 
 ```html
-<meta name="theme-color" content="#E64545" />
-
-<!-- Tambahkan pada skrin utama -->
-<meta name="mobile-web-app-capable" content="yes" />
-<!-- Info lanjut: https://developer.chrome.com/multidevice/android/installtohomescreen -->
-
-<!-- Pautan dalam apl Android -->
-<meta name="google-play-app" content="app-id=package-name" />
-<link rel="alternate" href="android-app://package-name/http/url-sample.com" />
+<!-- Pilih susunan rendering engine -->
+<meta name="renderer" content="webkit|ie-comp|ie-stand" />
 ```
 
-### Google Chrome
+- - - -
+
+### QQ Mobile Browser
 
 ```html
-<link
-  rel="chrome-webstore-item"
-  href="https://chrome.google.com/webstore/detail/APP_ID"
-/>
+<!-- Mengunci skrin ke dalam orientasi yang ditentukan -->
+<meta name="x5-orientation" content="landscape/portrait" />
 
-<!-- Lumpuhkan gesaan terjemahan -->
-<meta name="google" content="notranslate" />
+<!-- Paparkan dokumen ini dalam skrin penuh -->
+<meta name="x5-fullscreen" content="true" />
+
+<!-- Dokumen akan dipaparkan dalam "mod aplikasi" (skrin penuh, dsb.) -->
+<meta name="x5-page-mode" content="app" />
 ```
 
-### Microsoft Internet Explorer
+- - - -
+
+### UC Mobile Browser
 
 ```html
-<!-- Paksa IE 8/9/10 untuk menggunakan enjin pemaparan terbaharunya -->
-<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<!-- Mengunci skrin ke dalam orientasi yang ditentukan -->
+<meta name="screen-orientation" content="landscape/portrait" />
 
-<!-- Lumpuhkan pengesanan automatik dan pemformatan yang berkemungkinan normbor telefon melalui sambungan penyemak imbas Skype Toolbar -->
-<meta name="skype_toolbar" content="skype_toolbar_parser_compatible" />
+<!-- Paparkan dokumen ini dalam skrin penuh -->
+<meta name="full-screen" content="yes" />
 
-<!-- Windows Tiles -->
-<meta name="msapplication-config" content="/browserconfig.xml" />
+<!-- UC browser akan memaparkan imej walaupun dalam "mod teks" -->
+<meta name="imagemode" content="force" />
+
+<!-- Dokumen akan dipaparkan dalam "mod aplikasi" (skrin penuh, isyarat melarang, dsb.) -->
+<meta name="browsermode" content="application" />
+
+<!-- Melumpuhkan "mod malam" UC browser untuk dokumen ini -->
+<meta name="nightmode" content="disable" />
+
+<!-- Ringkaskan dokumen untuk mengurangkan pemindahan data -->
+<meta name="layoutmode" content="fitscreen" />
+
+<!-- Lumpuhkan ciri UC browser untuk "meningkatkan fon apabila terdapat banyak perkataan dalam dokumen ini" -->
+<meta name="wap-font-scale" content="no" />
 ```
 
-Penanda xml minimum yang diperlukan untuk `browserconfig.xml`:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<browserconfig>
-   <msapplication>
-     <tile>
-        <square70x70logo src="small.png"/>
-        <square150x150logo src="medium.png"/>
-        <wide310x150logo src="wide.png"/>
-        <square310x310logo src="large.png"/>
-     </tile>
-   </msapplication>
-</browserconfig>
-```
-
-- 📖 [Rujukan skema konfigurasi penyemak imbas](https://msdn.microsoft.com/en-us/library/dn320426.aspx)
+- 📖 [Dokumen UC Browser](https://www.uc.cn/download/UCBrowser_U3_API.doc)

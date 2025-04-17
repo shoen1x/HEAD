@@ -23,12 +23,16 @@
 		background-color: var(--color-nmvx-main);
 	}
 	::selection {
-		color: black;
+		color: white;
 		background: #212949;
 	}
   :root{
     font-family: "Inter", sans-serif;
     height: 100%;
+    color: white;
+  }
+  .astro-code code {
+    @apply w-full h-full block
   }
 }
 

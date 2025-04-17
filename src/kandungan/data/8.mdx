@@ -1,52 +1,22 @@
 ---
-title: "Pelayar (Bahasa Cina)"
+title: "Pautan Apl"
 ---
 
-export const title = "Pelayar (Bahasa Cina)"
-
-### 360 Browser
+export const title = "Pautan Apl"
 
 ```html
-<!-- Pilih susunan rendering engine -->
-<meta name="renderer" content="webkit|ie-comp|ie-stand" />
+<!-- iOS -->
+<meta property="al:ios:url" content="applinks://docs" />
+<meta property="al:ios:app_store_id" content="12345" />
+<meta property="al:ios:app_name" content="App Links" />
+
+<!-- Android -->
+<meta property="al:android:url" content="applinks://docs" />
+<meta property="al:android:app_name" content="App Links" />
+<meta property="al:android:package" content="org.applinks" />
+
+<!-- Web fall back -->
+<meta property="al:web:url" content="https://applinks.org/documentation" />
 ```
 
-### QQ Mobile Browser
-
-```html
-<!-- Mengunci skrin ke dalam orientasi yang ditentukan -->
-<meta name="x5-orientation" content="landscape/portrait" />
-
-<!-- Paparkan dokumen ini dalam skrin penuh -->
-<meta name="x5-fullscreen" content="true" />
-
-<!-- Dokumen akan dipaparkan dalam "mod aplikasi" (skrin penuh, dsb.) -->
-<meta name="x5-page-mode" content="app" />
-```
-
-### UC Mobile Browser
-
-```html
-<!-- Mengunci skrin ke dalam orientasi yang ditentukan -->
-<meta name="screen-orientation" content="landscape/portrait" />
-
-<!-- Paparkan dokumen ini dalam skrin penuh -->
-<meta name="full-screen" content="yes" />
-
-<!-- UC browser akan memaparkan imej walaupun dalam "mod teks" -->
-<meta name="imagemode" content="force" />
-
-<!-- Dokumen akan dipaparkan dalam "mod aplikasi" (skrin penuh, isyarat melarang, dsb.) -->
-<meta name="browsermode" content="application" />
-
-<!-- Melumpuhkan "mod malam" UC browser untuk dokumen ini -->
-<meta name="nightmode" content="disable" />
-
-<!-- Ringkaskan dokumen untuk mengurangkan pemindahan data -->
-<meta name="layoutmode" content="fitscreen" />
-
-<!-- Lumpuhkan ciri UC browser untuk "meningkatkan fon apabila terdapat banyak perkataan dalam dokumen ini" -->
-<meta name="wap-font-scale" content="no" />
-```
-
-- 📖 [Dokumen UC Browser](https://www.uc.cn/download/UCBrowser_U3_API.doc)
+- 📖 [Pautan Aplikasi](https://developers.facebook.com/docs/applinks)

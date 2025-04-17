@@ -2,8 +2,19 @@
 import HeadLogo from "~assets/brand/headlogo-dark.svg";
 import Background from "~assets/background.svg";
 import Github from "~assets/github.svg";
-import { Picture } from 'astro:assets';
-import MinDisyorkan from "~kandungan/data/MinDisyorkan.astro";
+import { Picture } from "astro:assets";
+import KomponenKad from "~components/KomponenKad.svelte";
+import { Code } from "astro:components";
+
+let code = `<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--
+  2 meta tag di atas *mesti* didahulukan di <head>
+  untuk memastikan penyampaian dokumen yang betul secara konsisten.
+  Mana-mana elemen <Head> lain harus datang *selepas* tag ini.
+ -->
+<title>Page Title</title>
+`;
 ---
 
 <div id="container" class="text-white m-2 md:flex md:flex-col">
@@ -13,31 +24,43 @@ import MinDisyorkan from "~kandungan/data/MinDisyorkan.astro";
       class="fixed top-0 left-0 w-full h-full -z-1 blur-3xl"
       src={Background}
       alt="Nirduan Crystalis Blue Background"
-      formats={['avif', 'webp']}
+      formats={["avif", "webp"]}
+      loading="eager"
     />
     <div class="absolute left-0 top-0 h-full w-full"></div>
   </div>
   <main class="h-full flex justify-center w-full md:block">
-    <section class="flex flex-col lg:flex-row items-center justify-between m-0.5 lg:m-10 gap-4 lg:gap-12">
+    <sec
+      class="flex flex-col lg:flex-row items-center justify-between m-0.5 lg:m-10 gap-4 lg:gap-12"
+    >
       <div class="flex flex-col items-center lg:max-w-[512px] gap-4 lg:gap-6">
-        <div class="inline-block relative h-full items-center justify-center w-auto overflow-hidden">
+        <div
+          class="inline-block relative h-full items-center justify-center w-auto overflow-hidden"
+        >
           <Picture
             src={HeadLogo}
             alt="Head by NMVX Homepage"
             id="Head Logo"
             width="512"
-            formats={['avif', 'webp']}
+            formats={["avif", "webp"]}
+            loading="eager"
           />
           <div class="absolute left-0 top-0 h-full w-full"></div>
         </div>
         <h1 class="font-bold text-9xl">
           Panduan ringkas untuk elemen <code>&#60;head&#62;</code> HTML
         </h1>
-        <div class="flex flex-col h-full w-full justify-start items-start gap-4">
+        <div
+          class="flex flex-col h-full w-full justify-start items-start gap-4"
+        >
           <h4>
-            Terjemahan dalam <abbr title="Malay (بهاس ملايو) is an Austronesian language that is an official language of Brunei, Malaysia, and Singapore.">Bahasa Melayu</abbr> oleh <a
+            Terjemahan dalam <abbr
+              title="Malay (بهاس ملايو) is an Austronesian language that is an official language of Brunei, Malaysia, and Singapore."
+              >Bahasa Melayu</abbr
+            > oleh <a
               class="font-medium underline"
-              href="https://nmvx.vercel.app/">shoen1x</a>
+              href="https://nmvx.vercel.app/">shoen1x</a
+            >
           </h4>
           <div class="flex flex-row w-full h-full justify-start gap-4">
             <a
@@ -47,6 +70,7 @@ import MinDisyorkan from "~kandungan/data/MinDisyorkan.astro";
                 src="https://img.shields.io/github/contributors/shoen1x/HEAD?style=for-the-badge&label=Penyumbang"
                 class="rounded-lg"
                 alt="lambang perisai Penyumbang"
+                loading="eager"
               /></a
             >
             <a
@@ -56,20 +80,40 @@ import MinDisyorkan from "~kandungan/data/MinDisyorkan.astro";
                 src="https://img.shields.io/badge/license-CC0-green.svg?style=for-the-badge&label=Lesen"
                 class="rounded-lg"
                 alt="lambang perisai Penyumbang"
+                loading="eager"
               /></a
             >
-            <a href="https://github.com/shoen1x/HEAD" class="font-medium underline"
+            <a
+              href="https://github.com/shoen1x/HEAD"
+              class="font-medium underline"
               ><img
                 src={Github.src}
                 width="28"
                 height="28"
                 alt="lambang github"
+                loading="eager"
               /></a
             >
           </div>
         </div>
       </div>
-      <MinDisyorkan />
-    </section>
+      <!-- Kad komponen serba guna -->
+      <KomponenKad
+        tajuk="Minimum yang disyorkan"
+        kandungan=`Berikut adalah elemen penting untuk mana-mana dokumen web (laman web/apl):`
+      >
+        <Code
+          class="whitespace-pre-wrap flex justify-center p-4 rounded-lg w-full"
+          {code}
+          lang="html"
+        />
+        <p class="inline-block w-full whitespace-pre-line">
+          <b>`meta charset`</b> - mentakrifkan pengekodan (encoding) laman web, `utf-8` ialah standard.
+          <b>`meta name="viewport"`</b> - tetapan viewport yang berkaitan dengan responsif antara muka mudah alih.
+          <b>`width=device-width`</b> - gunakan lebar fizikal peranti (bagus untuk antara muka mudah alih!).
+          <b>`initial-scale=1`</b> - zum permulaan, 1 bermaksud tiada zum.
+        </p>
+      </KomponenKad>
+    </sec>
   </main>
 </div>

@@ -1,4 +1,5 @@
 ---
+import { Picture } from "astro:assets";
 import NMVX from "~assets/nmvxlogo.svg";
 ---
 
@@ -10,11 +11,13 @@ import NMVX from "~assets/nmvxlogo.svg";
     target="_self"
     class="inline-flex text-base text-white flex-row w-full h-full justify-center items-center"
   >
-    Ditempa oleh <img
-      src={NMVX.src}
+    Ditempa oleh <Picture
+      src={NMVX}
       width="115"
       height="48"
       alt="Head by NMVX Homepage"
+      formats={["avif", "webp"]}
+      loading="lazy"
     />
   </a>
 </footer>

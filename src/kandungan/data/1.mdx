@@ -1,26 +1,41 @@
 ---
-title: "Minimum yang disyorkan"
+title: "Elemen"
 ---
 
-export const title = "Minimum yang disyorkan"
+export const title = "Elemen"
 
-Berikut adalah elemen penting untuk mana-mana dokumen web (laman web/apl):
+Elemen `<head>` yang sah termasuk `meta`, `link`, `title`, `style`, `script`, `noscript` dan `base`.
+
+Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat, dan disampaikan, oleh teknologi web. cth. pelayar, enjin carian, bot, dsb.
 
 ```html
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--
-  2 meta tag di atas *mesti* didahulukan di <head>
-  untuk memastikan penyampaian dokumen yang betul secara konsisten.
-  Mana-mana elemen <Head> lain harus datang *selepas* tag ini.
- -->
+  Tetapkan pengekodan aksara untuk dokumen ini, supaya
+  semua aksara dalam ruang UTF-8 (seperti emoji)
+  disampaikan dengan betul.
+-->
+<meta charset="utf-8" />
+
+<!-- Tetapkan tajuk dokumen -->
 <title>Page Title</title>
+
+<!-- Tetapkan URL asas untuk semua URL relatif dalam dokumen -->
+<base href="https://example.com/page.html" />
+
+<!-- Pautan ke fail CSS luaran -->
+<link rel="stylesheet" href="styles.css" />
+
+<!-- Digunakan untuk menambah CSS dalam dokumen -->
+<style>
+  /* ... */
+</style>
+
+<!-- Tag JavaScript & Bukan JavaScript -->
+<script src="script.js"></script>
+<script>
+  // function(s) ke sini
+</script>
+<noscript>
+  <!-- Tiada alternatif JS -->
+</noscript>
 ```
-
-`meta charset` - mentakrifkan pengekodan (encoding) laman web, `utf-8` ialah standard
-
-`meta name="viewport"` - tetapan viewport yang berkaitan dengan responsif antara muka mudah alih
-
-`width=device-width` - gunakan lebar fizikal peranti (bagus untuk antara muka mudah alih!)
-
-`initial-scale=1` - zum permulaan, 1 bermaksud tiada zum

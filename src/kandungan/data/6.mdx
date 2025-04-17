@@ -1,145 +1,105 @@
 ---
-title: "Sosial"
+title: "Pelayar / Platform"
 ---
 
-export const title = "Sosial"
+export const title = "Pelayar / Platform"
 
-### Facebook Open Graph
-
-> Kebanyakan kandungan dikongsi ke Facebook sebagai URL, jadi adalah penting untuk anda menandakan laman web anda dengan tag Graf Terbuka (Open Graph tags) untuk mengawal cara kandungan anda dipaparkan di Facebook. [Lebih lanjut mengenai Facebook Open Graph Markup](https://developers.facebook.com/docs/sharing/webmasters#markup)
+### Apple iOS
 
 ```html
-<meta property="fb:app_id" content="123456789" />
-<meta property="og:url" content="https://example.com/page.html" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Content Title" />
-<meta property="og:image" content="https://example.com/image.jpg" />
+<!-- Sepanduk Apl Pintar -->
 <meta
-  property="og:image:alt"
-  content="A description of what is in the image (not a caption)"
+  name="apple-itunes-app"
+  content="app-id=APP_ID,affiliate-data=AFFILIATE_ID,app-argument=SOME_TEXT"
 />
-<meta property="og:description" content="Description Here" />
-<meta property="og:site_name" content="Site Name" />
-<meta property="og:locale" content="en_US" />
-<meta property="article:author" content="" />
-```
 
-- 📖 [Buka protokol Graf](http://ogp.me/)
-- 🛠 Uji halaman anda dengan [Penyahpepijat Perkongsian Facebook](https://developers.facebook.com/tools/debug/)
+<!-- Lumpuhkan pengesanan automatik dan pemformatan yang berkemungkinan nombor telefon -->
+<meta name="format-detection" content="telephone=no" />
 
-### Kad Twitter
+<!-- Ikon Pelancaran (180x180px atau lebih besar) -->
+<link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
 
-> Dengan Kad Twitter, anda boleh melampirkan foto, video dan pengalaman media pada Tweet, membantu mendorong trafik ke laman web anda. [Lebih lanjut mengenai Kad Twitter](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards)
+<!-- Pelancaran Imej Skrin -->
+<link rel="apple-touch-startup-image" href="/path/to/launch.png" />
 
-```html
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@site_account" />
-<meta name="twitter:creator" content="@individual_account" />
-<meta name="twitter:url" content="https://example.com/page.html" />
-<meta name="twitter:title" content="Content Title" />
+<!-- Pelancaran Tajuk Ikon -->
+<meta name="apple-mobile-web-app-title" content="App Title" />
+
+<!-- Dayakan mod kendiri (skrin penuh). -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<!-- Penampilan bar status (tiada kesan melainkan mod kendiri didayakan) -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<!-- Pautan dalam apl iOS -->
 <meta
-  name="twitter:description"
-  content="Content description less than 200 characters"
+  name="apple-itunes-app"
+  content="app-id=APP-ID, app-argument=http/url-sample.com"
 />
-<meta name="twitter:image" content="https://example.com/image.jpg" />
-<meta
-  name="twitter:image:alt"
-  content="A text description of the image conveying the essential nature of an image to users who are visually impaired. Maximum 420 characters."
-/>
+<link rel="alternate" href="ios-app://APP-ID/http/url-sample.com" />
 ```
 
-- 📖 [Bermula dengan kad — Pembangun Twitter](https://dev.twitter.com/cards/getting-started)
-- 🛠 Uji halaman anda dengan [Pengesah Kad Twitter](https://cards-dev.twitter.com/validator)
+- 📖 [Mengkonfigurasi Aplikasi Web](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
 
-### Privasi Twitter
+- - - -
 
-Jika anda membenamkan tweet dalam laman web anda, Twitter boleh menggunakan maklumat daripada laman web anda untuk menyesuaikan kandungan dan cadangan kepada pengguna Twitter. [Lebih lanjut mengenai pilihan privasi Twitter](https://dev.twitter.com/web/overview/privacy#what-privacy-options-do-website-publishers-have).
+### Google Android
 
 ```html
-<!-- tidak membenarkan Twitter daripada menggunakan maklumat laman web anda untuk tujuan pemperibadian -->
-<meta name="twitter:dnt" content="on" />
+<meta name="theme-color" content="#E64545" />
+
+<!-- Tambahkan pada skrin utama -->
+<meta name="mobile-web-app-capable" content="yes" />
+<!-- Info lanjut: https://developer.chrome.com/multidevice/android/installtohomescreen -->
+
+<!-- Pautan dalam apl Android -->
+<meta name="google-play-app" content="app-id=package-name" />
+<link rel="alternate" href="android-app://package-name/http/url-sample.com" />
 ```
 
-### Schema.org
+- - - -
 
-```html
-<html lang="" itemscope itemtype="https://schema.org/Article">
-  <head>
-    <link rel="author" href="" />
-    <link rel="publisher" href="" />
-    <meta itemprop="name" content="Content Title" />
-    <meta
-      itemprop="description"
-      content="Content description less than 200 characters"
-    />
-    <meta itemprop="image" content="https://example.com/image.jpg" />
-  </head>
-</html>
-```
-
-**Nota:** Tag meta ini memerlukan atribut `itemscope` dan `itemtype` untuk ditambahkan pada tag `<html>`.
-
-- 📖 [Memulakan - schema.org](https://schema.org/docs/gs.html)
-- 🛠 Uji halaman anda dengan [Rich Results Test](https://search.google.com/test/rich-results)
-
-### Pinterest
-
-Pinterest membolehkan anda menghalang orang daripada menyimpan sesuatu daripada laman web anda, menurut [to their help center](https://help.pinterest.com/en/business/article/prevent-saves-to-pinterest-from-your-site). `description` adalah pilihan.
-
-```html
-<meta
-  name="pinterest"
-  content="nopin"
-  description="Sorry, you can't save from my website!"
-/>
-```
-
-### Artikel Segera Facebook
-
-```html
-<meta charset="utf-8" />
-<meta property="op:markup_version" content="v1.0" />
-
-<!-- URL versi web artikel anda -->
-<link rel="canonical" href="https://example.com/article.html" />
-
-<!-- Gaya yang akan digunakan untuk artikel ini -->
-<meta property="fb:article_style" content="myarticlestyle" />
-```
-
-- 📖 [Mencipta Artikel - Artikel Segera](https://developers.facebook.com/docs/instant-articles/guides/articlecreate)
-- 📖 [Contoh Kod - Artikel Segera](https://developers.facebook.com/docs/instant-articles/reference)
-
-### OEmbed
+### Google Chrome
 
 ```html
 <link
-  rel="alternate"
-  type="application/json+oembed"
-  href="https://example.com/services/oembed?url=http%3A%2F%2Fexample.com%2Ffoo%2F&amp;format=json"
-  title="oEmbed Profile: JSON"
+  rel="chrome-webstore-item"
+  href="https://chrome.google.com/webstore/detail/APP_ID"
 />
-<link
-  rel="alternate"
-  type="text/xml+oembed"
-  href="https://example.com/services/oembed?url=http%3A%2F%2Fexample.com%2Ffoo%2F&amp;format=xml"
-  title="oEmbed Profile: XML"
-/>
+
+<!-- Lumpuhkan gesaan terjemahan -->
+<meta name="google" content="notranslate" />
 ```
 
-- 📖 [Format oEmbed](https://oembed.com/)
+- - - -
 
-### QQ/Wechat
-
-Pengguna berkongsi halaman web ke qq wechat akan mempunyai mesej berformat
+### Microsoft Internet Explorer
 
 ```html
-<meta itemprop="name" content="share title" />
-<meta
-  itemprop="image"
-  content="http://imgcache.qq.com/qqshow/ac/v4/global/logo.png"
-/>
-<meta name="description" itemprop="description" content="share content" />
+<!-- Paksa IE 8/9/10 untuk menggunakan enjin pemaparan terbaharunya -->
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+<!-- Lumpuhkan pengesanan automatik dan pemformatan yang berkemungkinan normbor telefon melalui sambungan penyemak imbas Skype Toolbar -->
+<meta name="skype_toolbar" content="skype_toolbar_parser_compatible" />
+
+<!-- Windows Tiles -->
+<meta name="msapplication-config" content="/browserconfig.xml" />
 ```
 
-- 📖 [Dokumen Format Kod](http://open.mobile.qq.com/api/mqq/index#api:setShareInfo)
+Penanda xml minimum yang diperlukan untuk `browserconfig.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+   <msapplication>
+     <tile>
+        <square70x70logo src="small.png"/>
+        <square150x150logo src="medium.png"/>
+        <wide310x150logo src="wide.png"/>
+        <square310x310logo src="large.png"/>
+     </tile>
+   </msapplication>
+</browserconfig>
+```
+
+- 📖 [Rujukan skema konfigurasi penyemak imbas](https://msdn.microsoft.com/en-us/library/dn320426.aspx)

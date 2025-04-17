@@ -2,6 +2,6 @@
     let { children } = $props();
   </script>
 
-<p class="mt-2 max-w-full text-xl text-gray-600 text-left">
+<p class="inline-block w-full whitespace-pre-line">
     {@render children?.()}
 </p>

@@ -1,4 +1,5 @@
 ---
+import KomponenKad from "~components/KomponenKad.svelte";
 import H1Style from "~components/modular/h1.svelte";
 import H2Style from "~components/modular/h2.svelte";
 import H3Style from "~components/modular/h3.svelte";
@@ -6,46 +7,32 @@ import PStyle from "~components/modular/p.svelte";
 import PreStyle from "~components/modular/pre.svelte";
 import UlStyle from "~components/modular/ul.svelte";
 import LiStyle from "~components/modular/li.svelte";
+import HrStyle from "~components/modular/hr.svelte";
+import { Code } from "astro:components";
 import CompilerString from "~components/constants/stringcompiler";
-const matches = import.meta.glob('~kandungan/data/*.mdx', { eager: true });
-const kandungan = Object.values(matches);
-// const items = (await getCollection("kandungan"))
-//   .map((
-//     { 
-//       data: { title },
-//       body
-//     }) => {
-//     return {
-//       title,
-//       body
-//     }
-// });
+import { getCollection, render } from "astro:content";
+
+const kandungan = Object.values(await getCollection("kandungan"));
 ---
 
-<div class="mt-4 relative flex flex-col gap-4 items-center justify-center mx-2">
-  {kandungan.map((kandungan: any, i) => (
-      <div id={CompilerString(kandungan.title)} class="relative flex-1 w-full h-full max-w-(--breakpoint-md)">
-        <div class="absolute inset-px rounded-lg bg-white"></div>
-        <div
-          class="relative flex h-full w-full flex-col rounded-[calc(var(--radius-lg)+1px)] lg:odd:rounded-l-[calc(2rem+1px)]"
-        >
-          <div class="w-full h-full block top-24 px-8 pb-3 pt-8 sm:px-10 sm:pb-0 sm:pt-10 inset-px">
-            <p class="text-2xl lg:text-4xl font-bold tracking-tight text-gray-950 max-lg:text-center">
-              {kandungan.title}
-            </p>
-          </div>
-          <div class="w-full p-4 lg:px-8 lg:pb-3 grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm">
-            <kandungan.Content components={{
-              h1: H1Style,
-              h2: H2Style,
-              h3: H3Style,
-              p: PStyle,
-              pre: PreStyle,
-              ul: UlStyle,
-              li: LiStyle
-            }}/>
-          </div>
-        </div>
-      </div>
-  ))}
+<div class="flex flex-wrap w-full h-full mx-auto gap-4 justify-center">
+  {
+    kandungan.sort((a, b) => (a.id as any) - (b.id as any)).map(async (item) => {
+      const { Content } = await render(item);
+      return (
+        <KomponenKad tajuk={item.data.title}>
+            <Content
+              components={{
+                h1: H1Style,
+                ul: UlStyle,
+                li: LiStyle,
+                p: PStyle,
+                pre: PreStyle,
+                hr: HrStyle,
+              }}
+            />
+          </KomponenKad>
+      );
+    })
+  }
 </div>
