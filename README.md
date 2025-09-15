@@ -603,6 +603,7 @@ Minimum required xml markup for `browserconfig.xml`:
 - 🇮🇹 [Italian](https://github.com/Fakkio/HEAD)
 - 🇯🇵 [Japanese](https://coliss.com/articles/build-websites/operation/work/collection-of-html-head-elements.html)
 - 🇰🇷 [Korean](https://github.com/Lutece/HEAD)
+- 🇲🇾🇧🇳🇸🇬 [Malay](https://github.com/shoen1x/HEAD)
 - 🇷🇺 [Russian/Русский](https://github.com/Konfuze/HEAD)
 - 🇪🇸 [Spanish](https://github.com/alvaroadlf/HEAD)
 - 🇹🇷 [Turkish/Türkçe](https://github.com/mkg0/HEAD)
