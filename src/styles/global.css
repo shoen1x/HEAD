@@ -1,15 +1,6 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@import "./variables.css";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -19,26 +10,49 @@
     border-color: var(--color-gray-200, currentcolor);
   }
   ::-moz-selection {
-		color: var(--color-black);
-		background-color: var(--color-nmvx-main);
-	}
-	::selection {
-		color: white;
-		background: #212949;
-	}
-  :root{
+    color: var(--color-black);
+    background-color: var(--color-nmvx-main);
+  }
+  ::selection {
+    color: white;
+    background: #212949;
+  }
+
+  :root {
     font-family: "Inter", sans-serif;
     height: 100%;
     color: white;
   }
-  .astro-code code {
-    @apply w-full h-full block
-  }
-}
 
-html {
-  scroll-behavior: smooth;
-  background-color: #161718;
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    background-color: #161718;
+
+    -webkit-text-size-adjust: 100%;
+    font-variation-settings: normal;
+    cursor: auto;
+    font-kerning: none;
+    text-rendering: optimizeSpeed;
+  }
+
+  body {
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  .astro-code code {
+    @apply w-full h-full block;
+  }
+
+  h1 {
+    @apply text-2xl lg:text-4xl leading-normal;
+  }
+
+  h3 {
+    @apply text-lg lg:text-2xl;
+  }
 }
 
 /* h1 {

@@ -1,5 +1,6 @@
 ---
 import KomponenKad from "~components/KomponenKad.svelte";
+import Link from "~components/modular/a.svelte";
 import H1Style from "~components/modular/h1.svelte";
 import H2Style from "~components/modular/h2.svelte";
 import H3Style from "~components/modular/h3.svelte";
@@ -8,31 +9,38 @@ import PreStyle from "~components/modular/pre.svelte";
 import UlStyle from "~components/modular/ul.svelte";
 import LiStyle from "~components/modular/li.svelte";
 import HrStyle from "~components/modular/hr.svelte";
-import { Code } from "astro:components";
 import CompilerString from "~components/constants/stringcompiler";
 import { getCollection, render } from "astro:content";
+import type { SvelteComponent } from "svelte";
 
 const kandungan = Object.values(await getCollection("kandungan"));
 ---
 
-<div class="flex flex-wrap w-full h-full mx-auto gap-4 justify-center">
+<section
+  id="bento-container"
+  class="relative flex justify-center gap-2.5 p-6 not-lg:flex-col lg:mx-auto lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-4 lg:p-12"
+>
   {
-    kandungan.sort((a, b) => (a.id as any) - (b.id as any)).map(async (item) => {
-      const { Content } = await render(item);
-      return (
-        <KomponenKad tajuk={item.data.title}>
+    kandungan
+      .sort((a, b) => (a.id as any) - (b.id as any))
+      .map(async (item) => {
+        const { Content } = await render(item);
+
+        return (
+          <KomponenKad tajuk={item.data.title}>
             <Content
               components={{
-                h1: H1Style,
-                ul: UlStyle,
-                li: LiStyle,
-                p: PStyle,
-                pre: PreStyle,
-                hr: HrStyle,
+                a: Link as SvelteComponent,
+                h1: H1Style as SvelteComponent,
+                ul: UlStyle as SvelteComponent,
+                li: LiStyle as SvelteComponent,
+                p: PStyle as SvelteComponent,
+                pre: PreStyle as SvelteComponent,
+                hr: HrStyle as SvelteComponent,
               }}
             />
           </KomponenKad>
-      );
-    })
+        );
+      })
   }
-</div>
+</section>

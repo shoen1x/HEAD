@@ -4,19 +4,20 @@ import NMVX from "~assets/nmvxlogo.svg";
 ---
 
 <footer
-  class="content-grid py-8 text-center text-muted font-handwriting leading-tight text-2xl"
+  class="flex w-full items-center justify-center pt-6 pb-12 text-2xl leading-tight"
 >
   <a
     href="https://nmvx.vercel.app/"
-    target="_self"
-    class="inline-flex text-base text-white flex-row w-full h-full justify-center items-center"
+    target="_blank"
+    class="inline-flex items-center text-base"
   >
-    Ditempa oleh <Picture
+    <span class="mr-3 block">Ditempa oleh</span>
+    <Picture
       src={NMVX}
-      width="115"
-      height="48"
+      width="128"
+      height="52"
       alt="Head by NMVX Homepage"
-      formats={["avif", "webp"]}
+      formats={["avif", "webp", "png"]}
       loading="lazy"
     />
   </a>

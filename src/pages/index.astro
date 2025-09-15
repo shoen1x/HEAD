@@ -4,6 +4,7 @@ import Layout from "~layouts/Layout.astro";
 import Bento from "~components/Bento.astro";
 import Additional from "~components/Additional.astro";
 import Table from "~components/TableContent.astro";
+import Seperator from "~components/stylize/seperator.svelte";
 ---
 
 <Layout
@@ -11,8 +12,8 @@ import Table from "~components/TableContent.astro";
   description="Panduan ringkas untuk elemen <head> HTML, diterjemah di dalam Bahasa Melayu."
 >
   <Hero />
-  <div id="stripe" class="bg-white/25 backdrop-blur-3xl mb-12 mt-4 block h-[2px] w-full rounded-lg"></div>
+  <Seperator />
   <Bento />
-  <div id="stripe" class="bg-white/25 backdrop-blur-3xl mb-12 mt-4 block h-[2px] w-full rounded-lg"></div>
+  <Seperator />
   <Additional />
 </Layout>

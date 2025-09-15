@@ -1,7 +1,6 @@
 ---
 import "~styles/global.css";
-import "~styles/normalize.css";
-import "~styles/variables.css";
+import Header from "~components/Header.astro";
 import Footer from "~components/Footer.astro";
 import Ogimage from "~assets/ogImage/ogImageh.png";
 
@@ -18,7 +17,6 @@ const ogImageUrl = new URL(Ogimage.src, Astro.url);
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Meta -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link
@@ -59,14 +57,10 @@ const ogImageUrl = new URL(Ogimage.src, Astro.url);
     <meta property="twitter:title" content={title} />
     <meta property="twitter:image" content={ogImageUrl} />
   </head>
-  <body>
-    <div
-      class="flex flex-col flex-wrap justify-between min-h-screen px-2 lg:px-4 py-0 mx-0 sm:mx-auto my-2 lg:my-4"
-    >
-      <main class="w-full mx-0 my-auto">
-        <slot />
-      </main>
-      <Footer />
-    </div>
+  <body class="antialiased">
+    <main class="my-6 flex min-h-screen flex-col sm:mx-auto lg:my-12">
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>

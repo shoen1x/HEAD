@@ -13,6 +13,7 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       theme: 'tokyo-night',
+      wrap: true,
     },
   },
 });

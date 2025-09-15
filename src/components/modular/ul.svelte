@@ -2,6 +2,6 @@
     let { children } = $props();
 </script>
 
-<ul class="my-1 lg:my-2 list-disc list-inside marker:text-[#20405c]">
+<ul class="inline-block relative list-none *:pb-3">
     {@render children?.()}
 </ul>
