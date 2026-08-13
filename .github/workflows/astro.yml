@@ -5,6 +5,7 @@ on:
     branches: ["gh_pages"]
 
   workflow_dispatch:
+  push: #temporary branch fixes
 
 permissions:
   contents: read
