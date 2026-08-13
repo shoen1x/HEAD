@@ -3,7 +3,6 @@ name: Deploy Astro site to Pages
 on:
   push:
     branches: ["gh_pages"]
-
   workflow_dispatch:
 
 permissions:
