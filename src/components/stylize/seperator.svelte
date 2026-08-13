@@ -1,1 +1,4 @@
-<div id="stripe" class="bg-white/15 backdrop-blur-3xl mb-6 lg:mb-8 mt-2 lg:mt-4 block h-px w-full rounded-lg"/>
+<div
+  id="stripe"
+  class="bg-white/15 backdrop-blur-3xl mb-6 lg:mb-8 mt-2 lg:mt-4 block h-px w-full rounded-lg"
+></div>

@@ -18,25 +18,24 @@ const ogImageUrl = new URL(Ogimage.src, Astro.url);
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge; chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="HEAD" />
     <link
-      rel="alternate icon"
-      type="image/png"
-      href="/HEAD/favicon-96x96.png"
-      sizes="96x96"
+      rel="manifest"
+      crossorigin="use-credentials"
+      href="/site.webmanifest"
     />
-    <link rel="icon" type="image/svg+xml" href="/HEAD/favicon.svg" />
-    <link rel="shortcut icon" href="/HEAD/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/HEAD/apple-touch-icon.png"
-    />
-    <meta name="apple-mobile-web-app-title" content="Head" />
-    <link rel="manifest" href="/HEAD/site.webmanifest" />
+    <meta name="text-scale" content="scale" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
     <title>&#x1F92F; {title}</title>
+    <meta name="description" content={description} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,8 +56,8 @@ const ogImageUrl = new URL(Ogimage.src, Astro.url);
     <meta property="twitter:title" content={title} />
     <meta property="twitter:image" content={ogImageUrl} />
   </head>
-  <body class="antialiased">
-    <main class="my-6 flex min-h-screen flex-col sm:mx-auto lg:my-12">
+  <body>
+    <main class="my-6 flex min-h-screen flex-col sm:mx-auto md:my-9 lg:my-12">
       <slot />
     </main>
     <Footer />

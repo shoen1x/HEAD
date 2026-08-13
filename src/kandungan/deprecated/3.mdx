@@ -1,0 +1,17 @@
+---
+title: Resource Hints
+---
+
+```html
+<!-- Prerender a full page in the background -->
+<link rel="prerender" href="https://example.com/" />
+```
+
+`<link rel="prerender">` was [deprecated and removed from Chrome](https://developer.chrome.com/blog/prerender-pages) in favor of the [Speculation Rules API](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API).
+
+```html
+<!-- Completely opt out of DNS prefetching by setting to "off" -->
+<meta http-equiv="x-dns-prefetch-control" content="off" />
+```
+
+`x-dns-prefetch-control` was a Firefox/IE-era extension that was never implemented in Chromium and is no longer meaningfully consumed by modern browsers. Use `<link rel="dns-prefetch">` for explicit prefetch hints.

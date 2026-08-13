@@ -1,46 +1,88 @@
 ---
 import KomponenKad from "~components/KomponenKad.svelte";
-import Link from "~components/modular/a.svelte";
-import H1Style from "~components/modular/h1.svelte";
-import H2Style from "~components/modular/h2.svelte";
-import H3Style from "~components/modular/h3.svelte";
-import PStyle from "~components/modular/p.svelte";
-import PreStyle from "~components/modular/pre.svelte";
-import UlStyle from "~components/modular/ul.svelte";
-import LiStyle from "~components/modular/li.svelte";
-import HrStyle from "~components/modular/hr.svelte";
+import {
+  H1Style,
+  HrStyle,
+  Link,
+  LiStyle,
+  PreStyle,
+  PStyle,
+  UlStyle,
+} from "./modular";
 import CompilerString from "~components/constants/stringcompiler";
 import { getCollection, render } from "astro:content";
-import type { SvelteComponent } from "svelte";
+import Table from "~components/TableContent.astro";
+import Seperator from "~components/stylize/seperator.svelte";
 
 const kandungan = Object.values(await getCollection("kandungan"));
+const deprecated = Object.values(await getCollection("deprecated"));
 ---
 
-<section
-  id="bento-container"
-  class="relative flex justify-center gap-2.5 p-6 not-lg:flex-col lg:mx-auto lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-4 lg:p-12"
->
-  {
-    kandungan
-      .sort((a, b) => (a.id as any) - (b.id as any))
-      .map(async (item) => {
-        const { Content } = await render(item);
+<section>
+  <div
+    id="bento-container"
+    class="columns-1 gap-2 space-y-2 p-6 lg:columns-2 lg:gap-4 lg:space-y-4 lg:p-12"
+  >
+    {
+      kandungan
+        .sort((a, b) => (a.id as any) - (b.id as any))
+        .slice(1)
+        .map(async (item) => {
+          const { Content } = await render(item);
 
-        return (
-          <KomponenKad tajuk={item.data.title}>
-            <Content
-              components={{
-                a: Link as SvelteComponent,
-                h1: H1Style as SvelteComponent,
-                ul: UlStyle as SvelteComponent,
-                li: LiStyle as SvelteComponent,
-                p: PStyle as SvelteComponent,
-                pre: PreStyle as SvelteComponent,
-                hr: HrStyle as SvelteComponent,
-              }}
-            />
-          </KomponenKad>
-        );
-      })
-  }
+          return (
+            <KomponenKad tajuk={item.data.title}>
+              <Content
+                components={{
+                  a: Link,
+                  h1: H1Style,
+                  ul: UlStyle,
+                  li: LiStyle,
+                  p: PStyle,
+                  pre: PreStyle,
+                  hr: HrStyle,
+                }}
+              />
+            </KomponenKad>
+          );
+        })
+    }
+  </div>
+
+  <Seperator />
+
+  <h2
+    class="relative inline-block px-6 text-2xl font-bold lg:px-12 lg:text-5xl"
+  >
+    Deprecated <code>&#60;head&#62;</code> Elements
+  </h2>
+  <span><i>Masih dalam kemaskini</i></span>
+  <div
+    id="deprecated-bento-container"
+    class="columns-1 gap-2 space-y-2 p-6 lg:columns-2 lg:gap-4 lg:space-y-4 lg:p-12"
+  >
+    {
+      deprecated
+        .sort((a, b) => (a.id as any) - (b.id as any))
+        .map(async (item) => {
+          const { Content } = await render(item);
+
+          return (
+            <KomponenKad tajuk={item.data.title}>
+              <Content
+                components={{
+                  a: Link,
+                  h1: H1Style,
+                  ul: UlStyle,
+                  li: LiStyle,
+                  p: PStyle,
+                  pre: PreStyle,
+                  hr: HrStyle,
+                }}
+              />
+            </KomponenKad>
+          );
+        })
+    }
+  </div>
 </section>

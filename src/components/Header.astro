@@ -1,21 +1,16 @@
 ---
 import HeadLogo from "~assets/brand/headlogo-dark.svg";
-import { Picture } from "astro:assets";
 ---
 
-<header class="sticky top-0 left-0 w-full h-full p-2 z-50">
+<header class="sticky top-0 left-0 z-50 h-full w-full p-2">
   <nav
-    class="flex items-center justify-center flex-wrap backdrop-blur-lg bg-[#20405c]/80 p-6 rounded-[calc(var(--radius-lg)+1px)] drop-shadow-md"
+    class="flex flex-wrap items-center justify-center rounded-[calc(var(--radius-lg)+1px)] bg-[#20405c]/60 p-6 drop-shadow-md backdrop-blur-[4.125rem]"
   >
-    <div class="inline-flex justify-center flex-row text-white mr-6">
+    <div class="inline-flex flex-row justify-center text-white">
       <a href="https://shoen1x.github.io">
-        <Picture
-          src={HeadLogo}
-          alt="Head by NMVX Homepage"
-          formats={["avif", "webp", "png"]}
-          loading="eager"
-        /></a
-      >
+        <span class="sr-only">Head</span>
+        <HeadLogo />
+      </a>
     </div>
   </nav>
 </header>
