@@ -4,7 +4,6 @@ import Background from "~assets/background.svg";
 import Github from "~assets/github.svg";
 import { Picture } from "astro:assets";
 import KomponenKad from "~components/KomponenKad.svelte";
-import { Code } from "astro:components";
 import CardDetail from "~components/stylize/card-details.svelte";
 import { escapeHTML } from "astro/runtime/server/escape.js";
 import { getCollection, render } from "astro:content";
@@ -16,9 +15,13 @@ import {
   PreStyle,
   PStyle,
   UlStyle,
+  Code,
+  OlStyle,
 } from "./modular";
 
-const kHander = Object.values(await getCollection("kandungan"));
+const kHander = await getCollection("kandungan");
+const featureContent = kHander.find((data) => data.data.order === 0);
+const { Content } = featureContent ? await render(featureContent) : {};
 ---
 
 <Background class="fixed top-0 left-0 -z-1 h-full w-full blur-3xl" />
@@ -48,32 +51,32 @@ const kHander = Object.values(await getCollection("kandungan"));
           <span>Shoenix</span>
         </a>.
       </p>
-      <a href="https://github.com/shoen1x/HEAD" target="_blank">
+      <a href="https://github.com/shoen1x/HEAD" class="w-fit" target="_blank">
         <Github width="32" height="32" />
       </a>
     </div>
   </div>
   <div class="relative flex w-full flex-1/2 items-center justify-center">
     {
-      kHander.slice(0, 1).map(async (item) => {
-        const { Content } = await render(item);
-
-        return (
-          <KomponenKad tajuk={item.data.title}>
-            <Content
-              components={{
-                a: Link,
-                h1: H1Style,
-                ul: UlStyle,
-                li: LiStyle,
-                p: PStyle,
-                pre: PreStyle,
-                hr: HrStyle,
-              }}
-            />
-          </KomponenKad>
-        );
-      })
+      featureContent && Content ? (
+        <KomponenKad tajuk={featureContent.data.title}>
+          <Content
+            components={{
+              a: Link,
+              h1: H1Style,
+              ul: UlStyle,
+              li: LiStyle,
+              p: PStyle,
+              pre: PreStyle,
+              hr: HrStyle,
+              code: Code,
+              ol: OlStyle,
+            }}
+          />
+        </KomponenKad>
+      ) : (
+        <p>No post found with order = 0.</p>
+      )
     }
   </div>
 </section>

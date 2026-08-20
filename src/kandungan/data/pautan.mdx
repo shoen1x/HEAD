@@ -1,18 +1,16 @@
 ---
 title: "Pautan"
+order: 4
 ---
 
 export const title = "Pautan";
 
-```html
+````html
 <!-- Menunjuk pada lembaran gaya luaran -->
 <link rel="stylesheet" href="https://example.com/styles.css" />
 
 <!-- Membantu mengelakkan isu kandungan pendua -->
 <link rel="canonical" href="https://example.com/article/?page=2" />
-
-<!-- Pautan ke versi HTML AMP bagi dokumen semasa -->
-<link rel="amphtml" href="https://example.com/path/to/amp-version.html" />
 
 <!-- Pautan ke fail JSON yang menentukan kelayakan "pemasangan" untuk aplikasi web -->
 <link rel="manifest" href="manifest.json" />
@@ -26,16 +24,12 @@ export const title = "Pautan";
 <!-- Memberi rujukan kepada lokasi dalam dokumen anda yang mungkin dalam bahasa lain -->
 <link rel="alternate" href="https://es.example.com/" hreflang="es" />
 
-<!-- Menyediakan maklumat tentang pengarang atau orang lain -->
+<!-- Memberikan maklumat tentang pengarang atau orang lain
+Digunakan untuk RelMeAuth, satu bentuk pengesahan identiti yang diedarkan.
+Lihat https://microformats.org/wiki/RelMeAuth untuk mengetahui lebih lanjut -->
 <link rel="me" href="https://google.com/profiles/thenextweb" type="text/html" />
 <link rel="me" href="mailto:name@example.com" />
 <link rel="me" href="sms:+15035550125" />
-
-<!-- Pautan kepada dokumen yang menerangkan koleksi rekod, dokumen atau bahan lain yang mempunyai kepentingan sejarah -->
-<link rel="archives" href="https://example.com/archives/" />
-
-<!-- Pautan ke sumber peringkat teratas dalam struktur hierarki -->
-<link rel="index" href="https://example.com/article/" />
 
 <!-- Menyediakan rujukan kendiri - berguna apabila dokumen mempunyai beberapa rujukan yang mungkin -->
 <link
@@ -44,30 +38,20 @@ export const title = "Pautan";
   href="https://example.com/atom.xml"
 />
 
-<!-- Dokumen pertama, terakhir, sebelumnya dan seterusnya dalam satu siri dokumen, masing-masing -->
-<link rel="first" href="https://example.com/article/" />
-<link rel="last" href="https://example.com/article/?page=42" />
+<!-- Dokumen sebelumnya dan seterusnya dalam satu siri dokumen, masing-masing -->
 <link rel="prev" href="https://example.com/article/?page=1" />
 <link rel="next" href="https://example.com/article/?page=3" />
 
-<!-- Digunakan apabila perkhidmatan pihak ketiga (3rd party) digunakan untuk mengekalkan blog -->
-<link
-  rel="EditURI"
-  href="https://example.com/xmlrpc.php?rsd"
-  type="application/rsd+xml"
-  title="RSD"
-/>
-
-<!-- Membentuk ulasan automatik apabila blog WordPress lain dipautkan ke blog atau siaran WordPress anda -->
-<link rel="pingback" href="https://example.com/xmlrpc.php" />
-
-<!-- Memberitahu URL apabila anda memautkannya pada dokumen anda -->
+<!-- Memberitahu URL apabila anda memautkannya pada dokumen anda Maklumat lanjut di https://webmention.net -->
 <link rel="webmention" href="https://example.com/webmention" />
 
-<!-- Membolehkan penyiaran ke domain anda sendiri menggunakan klien Micropub -->
+<!-- Membolehkan penyiaran ke domain anda sendiri menggunakan klien Micropub Maklumat lanjut di https://indieweb.org/Micropub -->
 <link rel="micropub" href="https://example.com/micropub" />
 
-<!-- Buka Carian -->
+<!-- Membolehkan anda menggunakan laman web anda dengan IndieAuth, penyelesaian identiti yang membolehkan anda mengesahkan dengan nama domain anda. Baca lebih lanjut di https://indieauth.net. -->
+<link rel="token_endpoint" href="https://example.com/token" />
+
+<!-- Open Search -->
 <link
   rel="search"
   href="/open-search.xml"
@@ -75,7 +59,7 @@ export const title = "Pautan";
   title="Search Title"
 />
 
-<!-- Suapan -->
+<!-- Suapan (Feeds) -->
 <link
   rel="alternate"
   href="https://feeds.feedburner.com/example"
@@ -94,8 +78,15 @@ export const title = "Pautan";
 <link rel="dns-prefetch" href="//example.com/" />
 <link rel="preconnect" href="https://www.example.com/" />
 <link rel="prefetch" href="https://www.example.com/" />
-<link rel="prerender" href="https://example.com/" />
-<link rel="preload" href="image.png" as="image" />
-```
 
-- [Link Relations](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
+<link rel="preload" href="image.png" as="image" />
+``` **Nota:** [Web App
+Manifest](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest)
+(`manifest.json`) ialah cara merentas platform yang disyorkan untuk
+mengisytiharkan sifat aplikasi web yang boleh dipasang — termasuk mod `nama`,
+`ikon`, `warna_tema` dan `paparan` — dalam satu fail, dan bukannya bergantung
+pada berbilang teg `<meta />` khusus platform. - 📖 [Link
+Relations](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
+- 📖 [Web App Manifest
+(MDN)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest)
+````

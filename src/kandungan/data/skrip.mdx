@@ -1,0 +1,37 @@
+---
+title: "Skrip"
+order: 6
+---
+
+```html
+<!--
+Skrip: letakkan tag <script> di hujung <body> apabila boleh.
+Atribut berikut mengawal tingkah laku pemuatan apabila diletakkan di <head>:
+-->
+
+<!-- Menyekat penghuraian HTML dan pemaparan kandungan sehingga skrip diambil dan dilaksanakan -->
+<script src="script.js"></script>
+
+<!-- Skrip akan diambil selari dengan penghuraian dan dilaksanakan sebaik sahaja ia tersedia (sebelum penghuraian selesai) -->
+<script async src="script.js"></script>
+
+<!-- Skrip akan diambil selari dengan penghuraian dan dilaksanakan apabila halaman selesai dihuraikan -->
+<script defer src="script.js"></script>
+
+<!-- async diutamakan dalam pelayar moden; defer bertindak sebagai sandaran untuk pelayar lama yang tidak menyokong async -->
+<script async defer src="script.js"></script>
+
+<!-- Skrip sebaris -->
+<script>
+  // fungsi pergi ke sini
+</script>
+
+<!-- Integriti Subsumber (SRI): gunakan atribut integriti untuk mengesahkan bahawa sumber yang diambil telah dihantar tanpa manipulasi yang tidak dijangka -->
+<script
+  src="https://example.com/script.js"
+  integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
+></script>
+```
+
+- 📖 [async vs defer attributes](https://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html)
+- 📖 [Subresource Integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity)

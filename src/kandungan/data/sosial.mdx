@@ -1,0 +1,159 @@
+---
+title: "Sosial"
+order: 7
+---
+
+export const title = "Sosial";
+
+### Graf Terbuka
+
+> [Protokol Graf Terbuka](https://ogp.me/) ialah piawaian de facto untuk mengawal penampilan kandungan anda apabila dikongsi di platform sosial. Pada asalnya dicipta oleh Facebook, ia kini digunakan oleh kebanyakan platform utama — termasuk LinkedIn, X (sebagai sandaran apabila tag Kad Twitter tiada), Discord, Slack, iMessage, Mastodon, Bluesky dan WhatsApp.
+
+```html
+<meta property="og:url" content="https://example.com/page.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Tajuk Kandungan" />
+<meta property="og:image" content="https://example.com/image.jpg" />
+<meta
+  property="og:image:alt"
+  content="Penerangan tentang apa yang ada dalam imej (bukan kapsyen)"
+/>
+<meta property="og:description" content="Penerangan Di Sini" />
+<meta property="og:site_name" content="Nama Tapak" />
+<meta property="og:locale" content="en_US" />
+<meta property="article:author" content="" />
+```
+
+- 📖 [Open Graph protocol](https://ogp.me/)
+- 🛠 Test your page with the [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) or the [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/)
+
+### Schema.org
+
+```html
+<html lang="" itemscope itemtype="https://schema.org/Article">
+  <head>
+    <link rel="author" href="" />
+    <link rel="publisher" href="" />
+    <meta itemprop="name" content="Tajuk Kandungan" />
+    <meta
+      itemprop="description"
+      content="Huraian kandungan kurang daripada 200 aksara"
+    />
+    <meta itemprop="image" content="https://example.com/image.jpg" />
+  </head>
+</html>
+```
+
+**Nota:** Tag meta ini memerlukan atribut `itemscope` dan `itemtype` ditambah pada tag `<html>`.
+
+- 📖 [Getting Started - schema.org](https://schema.org/docs/gs.html)
+- 🛠 Test your page with the [Rich Results Test](https://search.google.com/test/rich-results)
+
+### Skema JSON-LD Google
+
+Berikut digunakan oleh Google untuk membantu menyediakan laman web anda dengan hasil graf pengetahuan apabila seseorang mencari anda di Google (ini ialah anak tetingkap di sebelah kanan hasil carian yang biasanya muncul untuk jenama yang lebih besar):
+
+```html
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+
+    "@type": "Organisasi",
+    "name": "yourbrand.com",
+    "url": "https://www.yourbrand.com/",
+    "logo": "https://www.yourbrand.com/logo.png",
+    "sameAs": [
+      "https://www.facebook.com/yourbrand",
+      "https://twitter.com/yourbrand",
+      "https://uk.pinterest.com/yourbrand/",
+      "https://www.instagram.com/yourbrand/",
+      "https://www.linkedin.com/company/yourbrand-com"
+    ]
+  }
+</script>
+```
+
+### Pinterest
+
+Pinterest membolehkan anda menghalang orang daripada menyimpan sesuatu daripada laman web anda, menurut [pusat bantuan mereka](https://help.pinterest.com/en/business/article/prevent-saves-to-pinterest-from-your-site). `description` adalah pilihan.
+
+```html
+<meta
+  name="pinterest"
+  content="nopin"
+  description="Maaf, anda tidak boleh menyimpan daripada laman web saya!"
+/>
+```
+
+### OEmbed
+
+```html
+<link
+  rel="alternate"
+  type="application/json+oembed"
+  href="https://example.com/services/oembed?url=http%3A%2F%2Fexample.com%2Ffoo%2F&amp;format=json"
+  title="oEmbed Profile: JSON"
+/>
+<link
+  rel="alternate"
+  type="text/xml+oembed"
+  href="https://example.com/services/oembed?url=http%3A%2F%2Fexample.com%2Ffoo%2F&amp;format=xml"
+  title="oEmbed Profile: XML"
+/>
+```
+
+- 📖 [oEmbed format](https://oembed.com/)
+
+### QQ/Wechat
+
+Pengguna yang berkongsi halaman web ke qq wechat akan mempunyai mesej berformat
+
+```html
+<meta itemprop="name" content="share title" />
+<meta
+  itemprop="image"
+  content="http://imgcache.qq.com/qqshow/ac/v4/global/logo.png"
+/>
+<meta name="description" itemprop="description" content="share content" />
+```
+
+- 📖 [Dokumen Format Kod](http://open.mobile.qq.com/api/mqq/index#api:setShareInfo)
+
+### Dublin Core
+
+[Dublin Core](https://www.dublincore.org/) ialah perbendaharaan kata metadata yang diseragamkan sebagai [ISO 15836](https://www.iso.org/standard/71339.html) dan diselenggarakan oleh Inisiatif Metadata Dublin Core (DCMI). Ia mentakrifkan lima belas elemen teras untuk menerangkan sumber dan digunakan secara meluas dalam perpustakaan digital, repositori institusi, penerbitan akademik dan portal kerajaan. Untuk menggunakan Dublin Core dalam HTML, isytiharkan ruang nama DC dan kemudian tambahkan elemen yang dikehendaki sebagai tag `<meta>` dengan awalan `DC.`.
+
+```html
+<!-- Isytiharkan ruang nama Dublin Core -->
+<link rel="schema.DC" href="https://purl.org/dc/elements/1.1/" />
+
+<meta name="DC.title" content="Tajuk Halaman" />
+<meta name="DC.creator" content="Nama Pengarang" />
+<meta name="DC.subject" content="Kata Kunci; Topik" />
+<meta
+  name="DC.description"
+  content="Penerangan ringkas tentang kandungan halaman"
+/>
+<meta name="DC.publisher" content="Nama Penerbit" />
+<meta name="DC.contributor" content="Nama Penyumbang" />
+<meta name="DC.date" content="YYYY-MM-HH" />
+<meta name="DC.type" content="Teks" />
+<meta name="DC.format" content="text/html" />
+<meta name="DC.identifier" content="https://example.com/page.html" />
+<meta name="DC.source" content="https://example.com/original-source" />
+<meta name="DC.language" content="en" />
+<meta name="DC.relation" content="https://example.com/related" />
+<meta name="DC.coverage" content="Liputan ruang atau masa" />
+<meta name="DC.rights" content="Nama Pemilik Hak Cipta" />
+```
+
+- 📖 [Dublin Core Metadata Element Set](https://www.dublincore.org/specifications/dublin-core/dces/)
+- 📖 [Using Dublin Core in HTML](https://www.dublincore.org/specifications/dublin-core/dcq-html/)
+
+### Fediverse
+
+Sesetengah perisian Fediverse seperti Mastodon membolehkan anda meletakkan pemegang Fediverse anda dalam tag meta yang akan dipaparkan dalam embed ke laman web anda. Selain tag, anda juga perlu menambah domain anda ke senarai laman web yang dibenarkan dalam "Tetapan -> Profil awam -> Pengesahan -> Atribusi pengarang" (untuk Mastodon).
+
+```html
+<meta name="fediverse:creator" content="@handle@example.org" />
+```

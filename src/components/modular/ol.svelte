@@ -2,6 +2,6 @@
     let { children, ...props } = $props();
 </script>
 
-<li {...props} class="list-item">
+<ol {...props} class="list-decimal inline-block list-inside *:pb-3">
     {@render children()}
-</li>
+</ol>

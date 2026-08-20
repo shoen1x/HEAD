@@ -1,0 +1,18 @@
+---
+title: Petua Sumber
+order: 3
+---
+
+```html
+<!-- Prapapar halaman penuh di latar belakang -->
+<link rel="prerender" href="https://example.com/" />
+```
+
+`<link rel="prerender">` telah [ditamatkan dan dialih keluar daripada Chrome](https://developer.chrome.com/blog/prerender-pages) dan digantikan dengan [API Peraturan Spekulasi](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API).
+
+```html
+<!-- Pilih keluar sepenuhnya daripada prapengambilan DNS dengan menetapkan kepada "mati" -->
+<meta http-equiv="x-dns-prefetch-control" content="mati" />
+```
+
+`x-dns-prefetch-control` ialah sambungan era Firefox/IE yang tidak pernah dilaksanakan dalam Chromium dan tidak lagi digunakan secara bermakna oleh pelayar moden. Gunakan `<link rel="dns-prefetch">` untuk petunjuk praambilan yang eksplisit.

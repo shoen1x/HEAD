@@ -1,0 +1,45 @@
+---
+title: "Susunan Disyorkan"
+order: 2
+---
+
+Berikut ialah susunan elemen yang disyorkan dalam `<head>` untuk prestasi terbaik dan pemaparan dokumen yang betul:
+
+1. `<meta charset>` — Pengisytiharan pengekodan aksara; **mesti** muncul dalam 1024 bait pertama dokumen
+2. `<meta name="viewport">` — Tetapan Viewport; isytiharkan awal untuk memastikan pemaparan responsif yang betul
+3. `<title>` — Tajuk dokumen; diletakkan selepas pengekodan/viewport untuk mengelakkan potensi pemaparan semula
+4. Tag `<meta>` lain (penerangan, robot, dsb.)
+5. Tag meta Graf Terbuka / Sosial
+6. Tag `<link rel="canonical">` dan tag `<link>` lain (tidak termasuk helaian gaya dan petunjuk sumber)
+7. `<link rel="preconnect">` / `<link rel="dns-prefetch">` — Petunjuk sumber; awal untuk memaksimumkan nilainya
+8. `<link rel="stylesheet">` — CSS Luaran; Helaian gaya hendaklah diletakkan sebelum skrip
+9. `<link rel="icon">` — Favicon
+10. `<script>` — Skrip; gunakan `defer` atau `async` jika boleh untuk mengelakkan penyekatan pemaparan
+
+```html
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Tajuk Halaman</title>
+
+  <meta name="description" content="Page description" />
+  <!-- tag meta lain -->
+
+  <!-- Tag meta Graf Terbuka / Sosial -->
+  <meta property="og:title" content="Tajuk Halaman" />
+  <!-- tag meta sosial lain -->
+
+  <link rel="canonical" href="https://example.com/page.html" />
+  <!-- tag pautan lain (tidak termasuk helaian gaya dan petunjuk sumber) -->
+
+  <link rel="preconnect" href="https://example.com" />
+  <link rel="dns-prefetch" href="https://example.com" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <link rel="icon" href="favicon.ico" />
+
+  <script defer src="script.js"></script>
+</head>
+```

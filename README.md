@@ -10,28 +10,30 @@
 
 - [Minimum yang disyorkan](#minimum-yang-disyorkan)
 - [Elemen](#elemen)
+- [Susunan Disyorkan](#susunan-disyorkan)
 - [Meta](#meta)
 - [Pautan](#pautan)
+- [Skrip](#skrip)
 - [Ikon](#ikon)
 - [Sosial](#sosial)
-  - [Facebook Open Graph](#facebook-open-graph)
-  - [Kad Twitter](#kad-twitter)
-  - [Privasi Twitter](#privasi-twitter)
+  - [Open Graph](#open-graph)
   - [Schema.org](#schemaorg)
+  - [Google JSON-LD Schema](#google-json-ld-schema)
   - [Pinterest](#pinterest)
-  - [Artikel Segera Facebook](#artikel-segera-facebook)
   - [OEmbed](#oembed)
   - [QQ/Wechat](#qqwechat)
+  - [Dublin Core](#dublin-core)
+  - [Fediverse](#fediverse)
 - [Pelayar / Platform](#pelayar--platform)
   - [Apple iOS](#apple-ios)
   - [Google Android](#google-android)
   - [Google Chrome](#google-chrome)
-  - [Microsoft Internet Explorer](#microsoft-internet-explorer)
 - [Pelayar (Bahasa Cina)](#pelayar-bahasa-cina)
   - [360 Browser](#360-browser)
   - [QQ Mobile Browser](#qq-mobile-browser)
   - [UC Mobile Browser](#uc-mobile-browser)
 - [Pautan Apl](#pautan-apl)
+- [Tidak Digunakan](#tidak-digunakan)
 - [Sumber Lain](#sumber-lain)
 - [Projek Berkaitan](#projek-berkaitan)
 - [Format lain](#format-lain)
@@ -40,7 +42,7 @@
   - [Contributors](#-contributors)
 - [Author](#-author)
 - [Malay Language Translator](#-malay-language-translator)
-- [Lesen](#-lesen)
+- [License](#-license)
 
 ## Minimum yang disyorkan
 
@@ -64,8 +66,6 @@ Berikut adalah elemen penting untuk mana-mana dokumen web (laman web/apl):
 `width=device-width` - gunakan lebar fizikal peranti (bagus untuk antara muka mudah alih!)
 
 `initial-scale=1` - zum permulaan, 1 bermaksud tiada zum
-
-**[⬆ kembali ke atas](#kandungan)**
 
 ## Elemen
 
@@ -105,7 +105,48 @@ Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat
 </noscript>
 ```
 
-**[⬆ kembali ke atas](#kandungan)**
+## Susunan Disyorkan
+
+Berikut ialah susunan elemen yang disyorkan dalam `<head>` untuk prestasi terbaik dan pemaparan dokumen yang betul:
+
+1. `<meta charset>` — Pengisytiharan pengekodan aksara; **mesti** muncul dalam 1024 bait pertama dokumen
+2. `<meta name="viewport">` — Tetapan Viewport; isytiharkan awal untuk memastikan pemaparan responsif yang betul
+3. `<title>` — Tajuk dokumen; diletakkan selepas pengekodan/viewport untuk mengelakkan potensi pemaparan semula
+4. Tag `<meta>` lain (penerangan, robot, dsb.)
+5. Tag meta Graf Terbuka / Sosial
+6. Tag `<link rel="canonical">` dan tag `<link>` lain (tidak termasuk helaian gaya dan petunjuk sumber)
+7. `<link rel="preconnect">` / `<link rel="dns-prefetch">` — Petunjuk sumber; awal untuk memaksimumkan nilainya
+8. `<link rel="stylesheet">` — CSS Luaran; Helaian gaya hendaklah diletakkan sebelum skrip
+9. `<link rel="icon">` — Favicon
+10. `<script>` — Skrip; gunakan `defer` atau `async` jika boleh untuk mengelakkan penyekatan pemaparan
+
+```html
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Tajuk Halaman</title>
+
+  <meta name="description" content="Page description" />
+  <!-- tag meta lain -->
+
+  <!-- Tag meta Graf Terbuka / Sosial -->
+  <meta property="og:title" content="Tajuk Halaman" />
+  <!-- tag meta sosial lain -->
+
+  <link rel="canonical" href="https://example.com/page.html" />
+  <!-- tag pautan lain (tidak termasuk helaian gaya dan petunjuk sumber) -->
+
+  <link rel="preconnect" href="https://example.com" />
+  <link rel="dns-prefetch" href="https://example.com" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <link rel="icon" href="favicon.ico" />
+
+  <script defer src="script.js"></script>
+</head>
+```
 
 ## Meta
 
@@ -131,13 +172,16 @@ Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat
 <!-- Warna Tema untuk Chrome, Firefox OS dan Opera -->
 <meta name="theme-color" content="#4285f4" />
 
+<!-- Menunjukkan skema warna yang disokong untuk halaman (light, dark, atau kedua-duanya) -->
+<meta name="color-scheme" content="light dark" />
+
 <!-- Penerangan ringkas dokumen (had kepada 150 aksara) -->
 <!-- Kandungan ini *boleh* digunakan sebagai sebahagian daripada hasil carian enjin. -->
 <meta name="description" content="A description of the page" />
 
 <!-- Kawal tingkah laku rangkak (crawling) dan pengindeksan (indexing) enjin carian -->
-<meta name="robots" content="index,follow" /><!-- All Search Engines -->
-<meta name="googlebot" content="index,follow" /><!-- Google Specific -->
+<meta name="robots" content="index,follow" /><!-- Semua Enjin Carian -->
+<meta name="googlebot" content="index,follow" /><!-- Khusus Google -->
 
 <!-- Memberitahu Google untuk tidak menunjukkan kotak carian pautan tapak -->
 <meta name="google" content="nositelinkssearchbox" />
@@ -158,7 +202,6 @@ Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat
   name="msvalidate.01"
   content="verification_token"
 /><!-- Pusat Juruweb Bing -->
-<meta name="alexaVerifyID" content="verification_token" /><!-- Konsol Alexa -->
 <meta
   name="p:domain_verify"
   content="code_from_pinterest"
@@ -183,34 +226,34 @@ Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat
 <!-- Lumpuhkan pengesanan automatik dan pemformatan yang berkemungkinan nombor telefon -->
 <meta name="format-detection" content="telephone=no" />
 
-<!-- Tarik diri sepenuhnya daripada pengambilan DNS (DNS Prefetching) dengan menetapkan kepada "off" -->
-<meta http-equiv="x-dns-prefetch-control" content="off" />
-
-<!-- Menentukan dokumen untuk muncul dalam bingkai tertentu -->
-<meta http-equiv="Window-Target" content="_value" />
-
-<!-- Tag geo -->
-<meta name="ICBM" content="latitude, longitude" />
-<meta name="geo.position" content="latitude;longitude" />
+<!-- Tag Geo -->
+<meta
+  name="ICBM"
+  content="latitude, longitude"
+/><!-- Koordinat geografi (latitud, longitud) dalam darjah perpuluhan; cth. content="48.8566, 2.3522" -->
+<meta
+  name="geo.position"
+  content="latitude;longitude"
+/><!-- Koordinat geografi; latitud dan longitud dipisahkan oleh titik koma -->
 <meta
   name="geo.region"
   content="country[-state]"
-/><!-- Kod Negara (ISO 3166-1): wajib, kod negeri (ISO 3166-2): pilihan; cth. content="MY" / content="MY-KL" -->
+/><!-- Kod negara (ISO 3166-1): wajib, kod negeri (ISO 3166-2): pilihan; cth. content="US" / content="US-NY" -->
 <meta
   name="geo.placename"
   content="city/town"
-/><!-- cth. content="Bandar Kuala Lumpur" -->
+/><!-- cth. content="New York City" -->
 
 <!-- Pengewangan Web https://webmonetization.org/docs/getting-started -->
 <meta name="monetization" content="$paymentpointer.example" />
 ```
 
-- 📖 [Tag meta yang Google faham](https://support.google.com/webmasters/answer/79812?hl=en)
-- 📖 [WHATWG Wiki: MetaExtensions](https://wiki.whatwg.org/wiki/MetaExtensions)
-- 📖 [ICBM di Wikipedia](https://en.wikipedia.org/wiki/ICBM_address#Modern_use)
-- 📖 [Geotagging di Wikipedia](https://en.wikipedia.org/wiki/Geotagging#HTML_pages)
+**Nota:** Tag geo **tidak** digunakan oleh pelayar secara langsung — ia bertujuan untuk enjin carian, perayap web dan perkhidmatan berasaskan lokasi untuk memahami perkaitan geografi kandungan halaman. `ICBM` (dinamakan sempena konvensyen alamat ICBM tentera) dan `geo.position` kedua-duanya menyatakan koordinat dalam darjah perpuluhan; `ICBM` menggunakan pemisah koma manakala `geo.position` menggunakan titik koma. `geo.region` mengenal pasti negara (dan secara pilihan negeri/rantau) menggunakan kod ISO dan `geo.placename` menyediakan nama tempat yang boleh dibaca oleh manusia.
 
-**[⬆ kembali ke atas](#kandungan)**
+- 📖 [Meta tags that Google understands](https://developers.google.com/search/docs/crawling-indexing/special-tags?hl=en)
+- 📖 [WHATWG Wiki: MetaExtensions](https://wiki.whatwg.org/wiki/MetaExtensions)
+- 📖 [ICBM on Wikipedia](https://en.wikipedia.org/wiki/ICBM_address#Modern_use)
+- 📖 [Geotagging on Wikipedia](https://en.wikipedia.org/wiki/Geotagging#HTML_pages)
 
 ## Pautan
 
@@ -220,9 +263,6 @@ Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat
 
 <!-- Membantu mengelakkan isu kandungan pendua -->
 <link rel="canonical" href="https://example.com/article/?page=2" />
-
-<!-- Pautan ke versi HTML AMP bagi dokumen semasa -->
-<link rel="amphtml" href="https://example.com/path/to/amp-version.html" />
 
 <!-- Pautan ke fail JSON yang menentukan kelayakan "pemasangan" untuk aplikasi web -->
 <link rel="manifest" href="manifest.json" />
@@ -236,16 +276,12 @@ Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat
 <!-- Memberi rujukan kepada lokasi dalam dokumen anda yang mungkin dalam bahasa lain -->
 <link rel="alternate" href="https://es.example.com/" hreflang="es" />
 
-<!-- Menyediakan maklumat tentang pengarang atau orang lain -->
+<!-- Memberikan maklumat tentang pengarang atau orang lain
+Digunakan untuk RelMeAuth, satu bentuk pengesahan identiti yang diedarkan.
+Lihat https://microformats.org/wiki/RelMeAuth untuk mengetahui lebih lanjut -->
 <link rel="me" href="https://google.com/profiles/thenextweb" type="text/html" />
 <link rel="me" href="mailto:name@example.com" />
 <link rel="me" href="sms:+15035550125" />
-
-<!-- Pautan kepada dokumen yang menerangkan koleksi rekod, dokumen atau bahan lain yang mempunyai kepentingan sejarah -->
-<link rel="archives" href="https://example.com/archives/" />
-
-<!-- Pautan ke sumber peringkat teratas dalam struktur hierarki -->
-<link rel="index" href="https://example.com/article/" />
 
 <!-- Menyediakan rujukan kendiri - berguna apabila dokumen mempunyai beberapa rujukan yang mungkin -->
 <link
@@ -254,30 +290,20 @@ Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat
   href="https://example.com/atom.xml"
 />
 
-<!-- Dokumen pertama, terakhir, sebelumnya dan seterusnya dalam satu siri dokumen, masing-masing -->
-<link rel="first" href="https://example.com/article/" />
-<link rel="last" href="https://example.com/article/?page=42" />
+<!-- Dokumen sebelumnya dan seterusnya dalam satu siri dokumen, masing-masing -->
 <link rel="prev" href="https://example.com/article/?page=1" />
 <link rel="next" href="https://example.com/article/?page=3" />
 
-<!-- Digunakan apabila perkhidmatan pihak ketiga (3rd party) digunakan untuk mengekalkan blog -->
-<link
-  rel="EditURI"
-  href="https://example.com/xmlrpc.php?rsd"
-  type="application/rsd+xml"
-  title="RSD"
-/>
-
-<!-- Membentuk ulasan automatik apabila blog WordPress lain dipautkan ke blog atau siaran WordPress anda -->
-<link rel="pingback" href="https://example.com/xmlrpc.php" />
-
-<!-- Memberitahu URL apabila anda memautkannya pada dokumen anda -->
+<!-- Memberitahu URL apabila anda memautkannya pada dokumen anda Maklumat lanjut di https://webmention.net -->
 <link rel="webmention" href="https://example.com/webmention" />
 
-<!-- Membolehkan penyiaran ke domain anda sendiri menggunakan klien Micropub -->
+<!-- Membolehkan penyiaran ke domain anda sendiri menggunakan klien Micropub Maklumat lanjut di https://indieweb.org/Micropub -->
 <link rel="micropub" href="https://example.com/micropub" />
 
-<!-- Buka Carian -->
+<!-- Membolehkan anda menggunakan laman web anda dengan IndieAuth, penyelesaian identiti yang membolehkan anda mengesahkan dengan nama domain anda. Baca lebih lanjut di https://indieauth.net. -->
+<link rel="token_endpoint" href="https://example.com/token" />
+
+<!-- Open Search -->
 <link
   rel="search"
   href="/open-search.xml"
@@ -285,7 +311,7 @@ Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat
   title="Search Title"
 />
 
-<!-- Suapan -->
+<!-- Suapan (Feeds) -->
 <link
   rel="alternate"
   href="https://feeds.feedburner.com/example"
@@ -304,13 +330,49 @@ Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat
 <link rel="dns-prefetch" href="//example.com/" />
 <link rel="preconnect" href="https://www.example.com/" />
 <link rel="prefetch" href="https://www.example.com/" />
-<link rel="prerender" href="https://example.com/" />
+
 <link rel="preload" href="image.png" as="image" />
 ```
 
-- 📖 [Link Relations](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
+**Nota:** [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest) (`manifest.json`) ialah cara merentas platform yang disyorkan untuk mengisytiharkan sifat aplikasi web yang boleh dipasang — termasuk mod `nama`, `ikon`, `warna_tema` dan `paparan` — dalam satu fail, dan bukannya bergantung pada berbilang teg `<meta>` khusus platform.
 
-**[⬆ kembali ke atas](#kandungan)**
+- 📖 [Link Relations](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
+- 📖 [Web App Manifest (MDN)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest)
+
+## Skrip
+
+```html
+<!--
+Skrip: letakkan tag <script> di hujung <body> apabila boleh.
+Atribut berikut mengawal tingkah laku pemuatan apabila diletakkan di <head>:
+-->
+
+<!-- Menyekat penghuraian HTML dan pemaparan kandungan sehingga skrip diambil dan dilaksanakan -->
+<script src="script.js"></script>
+
+<!-- Skrip akan diambil selari dengan penghuraian dan dilaksanakan sebaik sahaja ia tersedia (sebelum penghuraian selesai) -->
+<script async src="script.js"></script>
+
+<!-- Skrip akan diambil selari dengan penghuraian dan dilaksanakan apabila halaman selesai dihuraikan -->
+<script defer src="script.js"></script>
+
+<!-- async diutamakan dalam pelayar moden; defer bertindak sebagai sandaran untuk pelayar lama yang tidak menyokong async -->
+<script async defer src="script.js"></script>
+
+<!-- Skrip sebaris -->
+<script>
+  // fungsi pergi ke sini
+</script>
+
+<!-- Integriti Subsumber (SRI): gunakan atribut integriti untuk mengesahkan bahawa sumber yang diambil telah dihantar tanpa manipulasi yang tidak dijangka -->
+<script
+  src="https://example.com/script.js"
+  integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
+></script>
+```
+
+- 📖 [async vs defer attributes](https://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html)
+- 📖 [Subresource Integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity)
 
 ## ikon
 
@@ -323,75 +385,35 @@ Elemen-elemen ini memberikan maklumat tentang cara sesuatu dokumen harus dilihat
 
 <!-- Ikon Apple Touch (guna semula 192px icon.png) -->
 <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
-
-<!-- Ikon Tab Disemat Safari -->
-<link rel="mask-icon" href="/path/to/icon.svg" color="blue" />
 ```
 
-- 📖 [Semua Tentang Favicon (Dan Ikon Sentuh)](https://bitsofco.de/all-about-favicons-and-touch-icons/)
-- 📖 [Mencipta Ikon Tab Disemat](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html)
-- 📖 [Favicon Cheat Sheet](https://github.com/audreyr/favicon-cheat-sheet)
-- 📖 [Ikon & Warna Pelayar](https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/)
-
-**[⬆ kembali ke atas](#kandungan)**
+- 📖 [All About Favicons (And Touch Icons)](https://bitsofco.de/all-about-favicons-and-touch-icons/)
+- 📖 [Favicon Cheat Sheet](https://github.com/audreyfeldroy/favicon-cheat-sheet)
+- 📖 [Icons & Browser Colors](https://web.dev/articles/icons-and-browser-colors)
 
 ## Sosial
 
-### Facebook Open Graph
+### Graf Terbuka
 
-> Kebanyakan kandungan dikongsi ke Facebook sebagai URL, jadi adalah penting untuk anda menandakan laman web anda dengan tag Graf Terbuka (Open Graph tags) untuk mengawal cara kandungan anda dipaparkan di Facebook. [Lebih lanjut mengenai Facebook Open Graph Markup](https://developers.facebook.com/docs/sharing/webmasters#markup)
+> [Protokol Graf Terbuka](https://ogp.me/) ialah piawaian de facto untuk mengawal penampilan kandungan anda apabila dikongsi di platform sosial. Pada asalnya dicipta oleh Facebook, ia kini digunakan oleh kebanyakan platform utama — termasuk LinkedIn, X (sebagai sandaran apabila tag Kad Twitter tiada), Discord, Slack, iMessage, Mastodon, Bluesky dan WhatsApp.
 
 ```html
-<meta property="fb:app_id" content="123456789" />
 <meta property="og:url" content="https://example.com/page.html" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Content Title" />
+<meta property="og:title" content="Tajuk Kandungan" />
 <meta property="og:image" content="https://example.com/image.jpg" />
 <meta
   property="og:image:alt"
-  content="A description of what is in the image (not a caption)"
+  content="Penerangan tentang apa yang ada dalam imej (bukan kapsyen)"
 />
-<meta property="og:description" content="Description Here" />
-<meta property="og:site_name" content="Site Name" />
+<meta property="og:description" content="Penerangan Di Sini" />
+<meta property="og:site_name" content="Nama Tapak" />
 <meta property="og:locale" content="en_US" />
 <meta property="article:author" content="" />
 ```
 
-- 📖 [Buka protokol Graf](http://ogp.me/)
-- 🛠 Uji halaman anda dengan [Penyahpepijat Perkongsian Facebook](https://developers.facebook.com/tools/debug/)
-
-### Kad Twitter
-
-> Dengan Kad Twitter, anda boleh melampirkan foto, video dan pengalaman media pada Tweet, membantu mendorong trafik ke laman web anda. [Lebih lanjut mengenai Kad Twitter](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards)
-
-```html
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@site_account" />
-<meta name="twitter:creator" content="@individual_account" />
-<meta name="twitter:url" content="https://example.com/page.html" />
-<meta name="twitter:title" content="Content Title" />
-<meta
-  name="twitter:description"
-  content="Content description less than 200 characters"
-/>
-<meta name="twitter:image" content="https://example.com/image.jpg" />
-<meta
-  name="twitter:image:alt"
-  content="A text description of the image conveying the essential nature of an image to users who are visually impaired. Maximum 420 characters."
-/>
-```
-
-- 📖 [Bermula dengan kad — Pembangun Twitter](https://dev.twitter.com/cards/getting-started)
-- 🛠 Uji halaman anda dengan [Pengesah Kad Twitter](https://cards-dev.twitter.com/validator)
-
-### Privasi Twitter
-
-Jika anda membenamkan tweet dalam laman web anda, Twitter boleh menggunakan maklumat daripada laman web anda untuk menyesuaikan kandungan dan cadangan kepada pengguna Twitter. [Lebih lanjut mengenai pilihan privasi Twitter](https://dev.twitter.com/web/overview/privacy#what-privacy-options-do-website-publishers-have).
-
-```html
-<!-- tidak membenarkan Twitter daripada menggunakan maklumat laman web anda untuk tujuan pemperibadian -->
-<meta name="twitter:dnt" content="on" />
-```
+- 📖 [Open Graph protocol](https://ogp.me/)
+- 🛠 Test your page with the [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) or the [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/)
 
 ### Schema.org
 
@@ -400,48 +422,56 @@ Jika anda membenamkan tweet dalam laman web anda, Twitter boleh menggunakan makl
   <head>
     <link rel="author" href="" />
     <link rel="publisher" href="" />
-    <meta itemprop="name" content="Content Title" />
+    <meta itemprop="name" content="Tajuk Kandungan" />
     <meta
       itemprop="description"
-      content="Content description less than 200 characters"
+      content="Huraian kandungan kurang daripada 200 aksara"
     />
     <meta itemprop="image" content="https://example.com/image.jpg" />
   </head>
 </html>
 ```
 
-**Nota:** Tag meta ini memerlukan atribut `itemscope` dan `itemtype` untuk ditambahkan pada tag `<html>`.
+**Nota:** Tag meta ini memerlukan atribut `itemscope` dan `itemtype` ditambah pada tag `<html>`.
 
-- 📖 [Memulakan - schema.org](https://schema.org/docs/gs.html)
-- 🛠 Uji halaman anda dengan [Rich Results Test](https://search.google.com/test/rich-results)
+- 📖 [Getting Started - schema.org](https://schema.org/docs/gs.html)
+- 🛠 Test your page with the [Rich Results Test](https://search.google.com/test/rich-results)
+
+### Skema JSON-LD Google
+
+Berikut digunakan oleh Google untuk membantu menyediakan laman web anda dengan hasil graf pengetahuan apabila seseorang mencari anda di Google (ini ialah anak tetingkap di sebelah kanan hasil carian yang biasanya muncul untuk jenama yang lebih besar):
+
+```html
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+
+    "@type": "Organisasi",
+    "name": "yourbrand.com",
+    "url": "https://www.yourbrand.com/",
+    "logo": "https://www.yourbrand.com/logo.png",
+    "sameAs": [
+      "https://www.facebook.com/yourbrand",
+      "https://twitter.com/yourbrand",
+      "https://uk.pinterest.com/yourbrand/",
+      "https://www.instagram.com/yourbrand/",
+      "https://www.linkedin.com/company/yourbrand-com"
+    ]
+  }
+</script>
+```
 
 ### Pinterest
 
-Pinterest membolehkan anda menghalang orang daripada menyimpan sesuatu daripada laman web anda, menurut [to their help center](https://help.pinterest.com/en/business/article/prevent-saves-to-pinterest-from-your-site). `description` adalah pilihan.
+Pinterest membolehkan anda menghalang orang daripada menyimpan sesuatu daripada laman web anda, menurut [pusat bantuan mereka](https://help.pinterest.com/en/business/article/prevent-saves-to-pinterest-from-your-site). `description` adalah pilihan.
 
 ```html
 <meta
   name="pinterest"
   content="nopin"
-  description="Sorry, you can't save from my website!"
+  description="Maaf, anda tidak boleh menyimpan daripada laman web saya!"
 />
 ```
-
-### Artikel Segera Facebook
-
-```html
-<meta charset="utf-8" />
-<meta property="op:markup_version" content="v1.0" />
-
-<!-- URL versi web artikel anda -->
-<link rel="canonical" href="https://example.com/article.html" />
-
-<!-- Gaya yang akan digunakan untuk artikel ini -->
-<meta property="fb:article_style" content="myarticlestyle" />
-```
-
-- 📖 [Mencipta Artikel - Artikel Segera](https://developers.facebook.com/docs/instant-articles/guides/articlecreate)
-- 📖 [Contoh Kod - Artikel Segera](https://developers.facebook.com/docs/instant-articles/reference)
 
 ### OEmbed
 
@@ -460,11 +490,11 @@ Pinterest membolehkan anda menghalang orang daripada menyimpan sesuatu daripada 
 />
 ```
 
-- 📖 [Format oEmbed](https://oembed.com/)
+- 📖 [oEmbed format](https://oembed.com/)
 
 ### QQ/Wechat
 
-Pengguna berkongsi halaman web ke qq wechat akan mempunyai mesej berformat
+Pengguna yang berkongsi halaman web ke qq wechat akan mempunyai mesej berformat
 
 ```html
 <meta itemprop="name" content="share title" />
@@ -477,7 +507,44 @@ Pengguna berkongsi halaman web ke qq wechat akan mempunyai mesej berformat
 
 - 📖 [Dokumen Format Kod](http://open.mobile.qq.com/api/mqq/index#api:setShareInfo)
 
-**[⬆ kembali ke atas](#kandungan)**
+### Dublin Core
+
+[Dublin Core](https://www.dublincore.org/) ialah perbendaharaan kata metadata yang diseragamkan sebagai [ISO 15836](https://www.iso.org/standard/71339.html) dan diselenggarakan oleh Inisiatif Metadata Dublin Core (DCMI). Ia mentakrifkan lima belas elemen teras untuk menerangkan sumber dan digunakan secara meluas dalam perpustakaan digital, repositori institusi, penerbitan akademik dan portal kerajaan. Untuk menggunakan Dublin Core dalam HTML, isytiharkan ruang nama DC dan kemudian tambahkan elemen yang dikehendaki sebagai tag `<meta>` dengan awalan `DC.`.
+
+```html
+<!-- Isytiharkan ruang nama Dublin Core -->
+<link rel="schema.DC" href="https://purl.org/dc/elements/1.1/" />
+
+<meta name="DC.title" content="Tajuk Halaman" />
+<meta name="DC.creator" content="Nama Pengarang" />
+<meta name="DC.subject" content="Kata Kunci; Topik" />
+<meta
+  name="DC.description"
+  content="Penerangan ringkas tentang kandungan halaman"
+/>
+<meta name="DC.publisher" content="Nama Penerbit" />
+<meta name="DC.contributor" content="Nama Penyumbang" />
+<meta name="DC.date" content="YYYY-MM-HH" />
+<meta name="DC.type" content="Teks" />
+<meta name="DC.format" content="text/html" />
+<meta name="DC.identifier" content="https://example.com/page.html" />
+<meta name="DC.source" content="https://example.com/original-source" />
+<meta name="DC.language" content="en" />
+<meta name="DC.relation" content="https://example.com/related" />
+<meta name="DC.coverage" content="Liputan ruang atau masa" />
+<meta name="DC.rights" content="Nama Pemilik Hak Cipta" />
+```
+
+- 📖 [Dublin Core Metadata Element Set](https://www.dublincore.org/specifications/dublin-core/dces/)
+- 📖 [Using Dublin Core in HTML](https://www.dublincore.org/specifications/dublin-core/dcq-html/)
+
+### Fediverse
+
+Sesetengah perisian Fediverse seperti Mastodon membolehkan anda meletakkan pemegang Fediverse anda dalam tag meta yang akan dipaparkan dalam embed ke laman web anda. Selain tag, anda juga perlu menambah domain anda ke senarai laman web yang dibenarkan dalam "Tetapan -> Profil awam -> Pengesahan -> Atribusi pengarang" (untuk Mastodon).
+
+```html
+<meta name="fediverse:creator" content="@handle@example.org" />
+```
 
 ## Pelayar / Platform
 
@@ -508,6 +575,12 @@ Pengguna berkongsi halaman web ke qq wechat akan mempunyai mesej berformat
 <!-- Penampilan bar status (tiada kesan melainkan mod kendiri didayakan) -->
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
+<!-- Port pandangan sesuai untuk telefon bertakuk (iPhone X dan yang lebih baharu); tambah viewport-fit=cover pada tag meta port pandangan sedia ada anda -->
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+/>
+
 <!-- Pautan dalam apl iOS -->
 <meta
   name="apple-itunes-app"
@@ -517,6 +590,8 @@ Pengguna berkongsi halaman web ke qq wechat akan mempunyai mesej berformat
 ```
 
 - 📖 [Mengkonfigurasi Aplikasi Web](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
+
+**Nota:** Sifat seperti tajuk aplikasi (`apple-mobile-web-app-title`), mod paparan/kendiri dan ikon aplikasi (`apple-touch-icon`) dikonfigurasikan dengan lebih andal dan mudah alih menggunakan [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest) (`<link rel="manifest">`), yang merupakan pendekatan yang disyorkan untuk Aplikasi Web Progresif (PWA). Tag meta khusus Apple kekal berguna sebagai sandaran untuk versi iOS yang lebih lama.
 
 ### Google Android
 
@@ -532,6 +607,8 @@ Pengguna berkongsi halaman web ke qq wechat akan mempunyai mesej berformat
 <link rel="alternate" href="android-app://package-name/http/url-sample.com" />
 ```
 
+**Nota:** `theme-color` dan tingkah laku "tambah ke skrin utama" / kendiri ditakrifkan dengan lebih baik menggunakan [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest) (`<link rel="manifest">`). Tag meta `theme-color` masih boleh berfungsi sebagai sandaran untuk pelayar yang belum menyokong sifat `theme-color` manifes.
+
 ### Google Chrome
 
 ```html
@@ -543,39 +620,6 @@ Pengguna berkongsi halaman web ke qq wechat akan mempunyai mesej berformat
 <!-- Lumpuhkan gesaan terjemahan -->
 <meta name="google" content="notranslate" />
 ```
-
-### Microsoft Internet Explorer
-
-```html
-<!-- Paksa IE 8/9/10 untuk menggunakan enjin pemaparan terbaharunya -->
-<meta http-equiv="x-ua-compatible" content="ie=edge" />
-
-<!-- Lumpuhkan pengesanan automatik dan pemformatan yang berkemungkinan normbor telefon melalui sambungan penyemak imbas Skype Toolbar -->
-<meta name="skype_toolbar" content="skype_toolbar_parser_compatible" />
-
-<!-- Windows Tiles -->
-<meta name="msapplication-config" content="/browserconfig.xml" />
-```
-
-Penanda xml minimum yang diperlukan untuk `browserconfig.xml`:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<browserconfig>
-   <msapplication>
-     <tile>
-        <square70x70logo src="small.png"/>
-        <square150x150logo src="medium.png"/>
-        <wide310x150logo src="wide.png"/>
-        <square310x310logo src="large.png"/>
-     </tile>
-   </msapplication>
-</browserconfig>
-```
-
-- 📖 [Rujukan skema konfigurasi penyemak imbas](https://msdn.microsoft.com/en-us/library/dn320426.aspx)
-
-**[⬆ kembali ke atas](#kandungan)**
 
 ## Pelayar (Bahasa Cina)
 
@@ -626,8 +670,6 @@ Penanda xml minimum yang diperlukan untuk `browserconfig.xml`:
 
 - 📖 [Dokumen UC Browser](https://www.uc.cn/download/UCBrowser_U3_API.doc)
 
-**[⬆ kembali ke atas](#kandungan)**
-
 ## Pautan Apl
 
 ```html
@@ -645,16 +687,16 @@ Penanda xml minimum yang diperlukan untuk `browserconfig.xml`:
 <meta property="al:web:url" content="https://applinks.org/documentation" />
 ```
 
-- 📖 [Pautan Aplikasi](https://developers.facebook.com/docs/applinks)
+- 📖 [App Links](https://developers.facebook.com/docs/applinks)
 
-**[⬆ kembali ke atas](#kandungan)**
+## Tidak Digunakan
+
+Untuk tag dan elemen yang pernah menjadi sebahagian daripada panduan ini tetapi tidak lagi disokong (keserasian Internet Explorer, Tab Pin Safari, pengesahan Alexa, dsb.), lihat [DEPRECATED.md](https://github.com/joshbuchea/HEAD/blob/master/DEPRECATED.md).
 
 ## Sumber Lain
 
 - 📖 [HTML5 Boilerplate Docs: The HTML](https://github.com/h5bp/html5-boilerplate/blob/master/dist/doc/html.md)
 - 📖 [HTML5 Boilerplate Docs: Extend and customize](https://github.com/h5bp/html5-boilerplate/blob/master/dist/doc/extend.md)
-
-**[⬆ kembali ke atas](#kandungan)**
 
 ## Projek Berkaitan
 
@@ -663,29 +705,21 @@ Penanda xml minimum yang diperlukan untuk `browserconfig.xml`:
 - [head-it](https://github.com/hemanth/head-it) - Antara muka CLI untuk coretan `HEAD`
 - [vue-head](https://github.com/ktquez/vue-head) - Memanipulasi maklumat meta teg `HEAD` untuk Vue.js
 
-**[⬆ kembali ke atas](#kandungan)**
-
-## Format Lain
-
-- 📄 [PDF](https://gitprint.com/joshbuchea/HEAD/blob/master/README.md)
-
-**[⬆ kembali ke atas](#kandungan)**
-
 ## 🌐 Terjemahan
 
-- 🇮🇩 [Bahasa](https://github.com/rijdz/HEAD)
-- 🇧🇷 [Brazilian Portuguese](https://github.com/Webschool-io/HEAD)
-- 🇨🇳 [Chinese (Simplified)](https://github.com/Amery2010/HEAD)
-- 🇩🇪 [German](https://github.com/Shidigital/HEAD)
-- 🇮🇹 [Italian](https://github.com/Fakkio/HEAD)
-- 🇯🇵 [Japanese](https://coliss.com/articles/build-websites/operation/work/collection-of-html-head-elements.html)
-- 🇰🇷 [Korean](https://github.com/Lutece/HEAD)
-- ms [Malay](https://github.com/shoen1x/HEAD)
-- 🇷🇺 [Russian/Русский](https://github.com/Konfuze/HEAD)
-- 🇪🇸 [Spanish](https://github.com/alvaroadlf/HEAD)
-- 🇹🇷 [Turkish/Türkçe](https://github.com/mkg0/HEAD)
-
-**[⬆ kembali ke atas](#kandungan)**
+- [Bahasa](https://github.com/rijdz/HEAD)
+- [Bengali](https://github.com/AveyBD/HEAD)
+- [Brazilian Portuguese](https://github.com/Webschool-io/HEAD)
+- [Chinese (Simplified)](https://github.com/Amery2010/HEAD)
+- [German](https://github.com/Shidigital/HEAD)
+- [Italian](https://github.com/Fakkio/HEAD)
+- [Japanese](https://coliss.com/articles/build-websites/operation/work/collection-of-html-head-elements.html)
+- [Korean](https://github.com/Lutece/HEAD)
+- [Malay](https://github.com/shoen1x/HEAD)
+- [Russian/Русский](https://github.com/Konfuze/HEAD)
+- [Spanish](https://github.com/alvaroadlf/HEAD)
+- [Turkish/Türkçe](https://github.com/mkg0/HEAD)
+- [Ukrainian](https://github.com/Shramkoweb/HEAD)
 
 ## 🤝 Contributing
 
@@ -740,13 +774,11 @@ Everything helps, thanks! 🙏
 
 ## 👤 Malay Language Translator
 
-**N.M.Muizz**
+**NMVX**
 
 - GitHub: [@shoen1x](https://github.com/shoen1x)
 - Email: [shoenixstudios@gmail.com](mailto:shoenixstudios@gmail.com)
 
-## 📝 Lesen
+## 📝 License
 
 [![CC0](https://i.creativecommons.org/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
-
-**[⬆ kembali ke atas](#kandungan)**

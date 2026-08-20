@@ -1,8 +1,7 @@
 ---
 title: "Meta"
+order: 3
 ---
-
-export const title = "Meta";
 
 ```html
 <!--
@@ -26,13 +25,16 @@ export const title = "Meta";
 <!-- Warna Tema untuk Chrome, Firefox OS dan Opera -->
 <meta name="theme-color" content="#4285f4" />
 
+<!-- Menunjukkan skema warna yang disokong untuk halaman (light, dark, atau kedua-duanya) -->
+<meta name="color-scheme" content="light dark" />
+
 <!-- Penerangan ringkas dokumen (had kepada 150 aksara) -->
 <!-- Kandungan ini *boleh* digunakan sebagai sebahagian daripada hasil carian enjin. -->
 <meta name="description" content="A description of the page" />
 
 <!-- Kawal tingkah laku rangkak (crawling) dan pengindeksan (indexing) enjin carian -->
-<meta name="robots" content="index,follow" /><!-- All Search Engines -->
-<meta name="googlebot" content="index,follow" /><!-- Google Specific -->
+<meta name="robots" content="index,follow" /><!-- Semua Enjin Carian -->
+<meta name="googlebot" content="index,follow" /><!-- Khusus Google -->
 
 <!-- Memberitahu Google untuk tidak menunjukkan kotak carian pautan tapak -->
 <meta name="google" content="nositelinkssearchbox" />
@@ -53,7 +55,6 @@ export const title = "Meta";
   name="msvalidate.01"
   content="verification_token"
 /><!-- Pusat Juruweb Bing -->
-<meta name="alexaVerifyID" content="verification_token" /><!-- Konsol Alexa -->
 <meta
   name="p:domain_verify"
   content="code_from_pinterest"
@@ -78,29 +79,31 @@ export const title = "Meta";
 <!-- Lumpuhkan pengesanan automatik dan pemformatan yang berkemungkinan nombor telefon -->
 <meta name="format-detection" content="telephone=no" />
 
-<!-- Tarik diri sepenuhnya daripada pengambilan DNS (DNS Prefetching) dengan menetapkan kepada "off" -->
-<meta http-equiv="x-dns-prefetch-control" content="off" />
-
-<!-- Menentukan dokumen untuk muncul dalam bingkai tertentu -->
-<meta http-equiv="Window-Target" content="_value" />
-
-<!-- Tag geo -->
-<meta name="ICBM" content="latitude, longitude" />
-<meta name="geo.position" content="latitude;longitude" />
+<!-- Tag Geo -->
+<meta
+  name="ICBM"
+  content="latitude, longitude"
+/><!-- Koordinat geografi (latitud, longitud) dalam darjah perpuluhan; cth. content="48.8566, 2.3522" -->
+<meta
+  name="geo.position"
+  content="latitude;longitude"
+/><!-- Koordinat geografi; latitud dan longitud dipisahkan oleh titik koma -->
 <meta
   name="geo.region"
   content="country[-state]"
-/><!-- Kod Negara (ISO 3166-1): wajib, kod negeri (ISO 3166-2): pilihan; cth. content="MY" / content="MY-KL" -->
+/><!-- Kod negara (ISO 3166-1): wajib, kod negeri (ISO 3166-2): pilihan; cth. content="US" / content="US-NY" -->
 <meta
   name="geo.placename"
   content="city/town"
-/><!-- cth. content="Bandar Kuala Lumpur" -->
+/><!-- cth. content="New York City" -->
 
 <!-- Pengewangan Web https://webmonetization.org/docs/getting-started -->
 <meta name="monetization" content="$paymentpointer.example" />
 ```
 
-- [Tag meta yang Google faham](https://support.google.com/webmasters/answer/79812?hl=en)
-- [WHATWG Wiki: MetaExtensions](https://wiki.whatwg.org/wiki/MetaExtensions)
-- [ICBM di Wikipedia](https://en.wikipedia.org/wiki/ICBM_address#Modern_use)
-- [Geotagging di Wikipedia](https://en.wikipedia.org/wiki/Geotagging#HTML_pages)
+**Nota:** Tag geo **tidak** digunakan oleh pelayar secara langsung — ia bertujuan untuk enjin carian, perayap web dan perkhidmatan berasaskan lokasi untuk memahami perkaitan geografi kandungan halaman. `ICBM` (dinamakan sempena konvensyen alamat ICBM tentera) dan `geo.position` kedua-duanya menyatakan koordinat dalam darjah perpuluhan; `ICBM` menggunakan pemisah koma manakala `geo.position` menggunakan titik koma. `geo.region` mengenal pasti negara (dan secara pilihan negeri/rantau) menggunakan kod ISO dan `geo.placename` menyediakan nama tempat yang boleh dibaca oleh manusia.
+
+- 📖 [Meta tags that Google understands](https://developers.google.com/search/docs/crawling-indexing/special-tags?hl=en)
+- 📖 [WHATWG Wiki: MetaExtensions](https://wiki.whatwg.org/wiki/MetaExtensions)
+- 📖 [ICBM on Wikipedia](https://en.wikipedia.org/wiki/ICBM_address#Modern_use)
+- 📖 [Geotagging on Wikipedia](https://en.wikipedia.org/wiki/Geotagging#HTML_pages)

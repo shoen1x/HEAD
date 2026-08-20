@@ -7,6 +7,8 @@ import PreStyle from "~components/modular/pre.svelte";
 import UlStyle from "~components/modular/ul.svelte";
 import LiStyle from "~components/modular/li.svelte";
 import HrStyle from "~components/modular/hr.svelte";
+import Code from "~components/modular/code.svelte";
+import OlStyle from "~components/modular/ol.svelte";
 
 export {
   Link,
@@ -18,4 +20,6 @@ export {
   UlStyle,
   LiStyle,
   HrStyle,
+  Code,
+  OlStyle,
 };

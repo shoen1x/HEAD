@@ -8,18 +8,63 @@ import {
   PreStyle,
   PStyle,
   UlStyle,
+  Code,
+  OlStyle,
 } from "./modular";
 import CompilerString from "~components/constants/stringcompiler";
 import { getCollection, render } from "astro:content";
 import Table from "~components/TableContent.astro";
 import Seperator from "~components/stylize/seperator.svelte";
+import { Masonry } from "astro-masonry";
 
-const kandungan = Object.values(await getCollection("kandungan"));
-const deprecated = Object.values(await getCollection("deprecated"));
+const kandungan = await getCollection("kandungan");
+const deprecated = await getCollection("deprecated");
+
+const kandunganList = kandungan
+  .filter((data) => data.data.order !== undefined && data.data.order >= 1)
+  .sort((a, b) => (a.data.order ?? Infinity) - (b.data.order ?? Infinity));
+
+const deprecatedList = deprecated.sort(
+  (a, b) => (a.data.order ?? Infinity) - (b.data.order ?? Infinity),
+);
 ---
 
 <section>
-  <div
+  <Masonry
+    id="bento-container"
+    breakpointCols={{
+      default: 2,
+      500: 1,
+    }}
+    sortByHeight={true}
+    class="flex gap-2 p-6 lg:gap-4 lg:p-12"
+  >
+    {
+      kandunganList.map(async (item) => {
+        const { Content } = await render(item);
+
+        return (
+          <KomponenKad tajuk={item.data.title}>
+            <Content
+              components={{
+                a: Link,
+                h1: H1Style,
+                ul: UlStyle,
+                li: LiStyle,
+                p: PStyle,
+                pre: PreStyle,
+                hr: HrStyle,
+                code: Code,
+                ol: OlStyle,
+              }}
+            />
+          </KomponenKad>
+        );
+      })
+    }
+  </Masonry>
+  <!-- <div
+    REKA BENTUK ORI
     id="bento-container"
     class="columns-1 gap-2 space-y-2 p-6 lg:columns-2 lg:gap-4 lg:space-y-4 lg:p-12"
   >
@@ -47,17 +92,53 @@ const deprecated = Object.values(await getCollection("deprecated"));
           );
         })
     }
-  </div>
+  </div> -->
 
   <Seperator />
 
   <h2
     class="relative inline-block px-6 text-2xl font-bold lg:px-12 lg:text-5xl"
   >
-    Deprecated <code>&#60;head&#62;</code> Elements
+    Elemen <code>&#60;head&#62;</code> yang tidak lagi disokong
   </h2>
-  <span><i>Masih dalam kemaskini</i></span>
-  <div
+  <!-- <span
+    class="rounded-full border border-black/60 bg-white/40 px-4 py-1 backdrop-blur-3xl select-none lg:px-6 lg:py-2"
+    ><i>Masih dalam kemaskini</i></span
+  > -->
+  <Masonry
+    id="deprecated-bento-container"
+    breakpointCols={{
+      default: 2,
+      500: 1,
+    }}
+    sortByHeight={true}
+    class="flex gap-2 p-6 lg:gap-4 lg:p-12"
+  >
+    {
+      deprecatedList.map(async (item) => {
+        const { Content } = await render(item);
+
+        return (
+          <KomponenKad tajuk={item.data.title}>
+            <Content
+              components={{
+                a: Link,
+                h1: H1Style,
+                ul: UlStyle,
+                li: LiStyle,
+                p: PStyle,
+                pre: PreStyle,
+                hr: HrStyle,
+                code: Code,
+                ol: OlStyle,
+              }}
+            />
+          </KomponenKad>
+        );
+      })
+    }
+  </Masonry>
+  <!-- <div
     id="deprecated-bento-container"
     class="columns-1 gap-2 space-y-2 p-6 lg:columns-2 lg:gap-4 lg:space-y-4 lg:p-12"
   >
@@ -84,5 +165,5 @@ const deprecated = Object.values(await getCollection("deprecated"));
           );
         })
     }
-  </div>
+  </div> -->
 </section>

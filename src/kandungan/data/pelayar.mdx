@@ -1,5 +1,6 @@
 ---
 title: "Pelayar / Platform"
+order: 8
 ---
 
 export const title = "Pelayar / Platform";
@@ -31,6 +32,12 @@ export const title = "Pelayar / Platform";
 <!-- Penampilan bar status (tiada kesan melainkan mod kendiri didayakan) -->
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
+<!-- Port pandangan sesuai untuk telefon bertakuk (iPhone X dan yang lebih baharu); tambah viewport-fit=cover pada tag meta port pandangan sedia ada anda -->
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+/>
+
 <!-- Pautan dalam apl iOS -->
 <meta
   name="apple-itunes-app"
@@ -39,9 +46,9 @@ export const title = "Pelayar / Platform";
 <link rel="alternate" href="ios-app://APP-ID/http/url-sample.com" />
 ```
 
-- [Mengkonfigurasi Aplikasi Web](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
+- 📖 [Mengkonfigurasi Aplikasi Web](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
 
----
+**Nota:** Sifat seperti tajuk aplikasi (`apple-mobile-web-app-title`), mod paparan/kendiri dan ikon aplikasi (`apple-touch-icon`) dikonfigurasikan dengan lebih andal dan mudah alih menggunakan [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest) (`<link rel="manifest">`), yang merupakan pendekatan yang disyorkan untuk Aplikasi Web Progresif (PWA). Tag meta khusus Apple kekal berguna sebagai sandaran untuk versi iOS yang lebih lama.
 
 ### Google Android
 
@@ -57,7 +64,7 @@ export const title = "Pelayar / Platform";
 <link rel="alternate" href="android-app://package-name/http/url-sample.com" />
 ```
 
----
+**Nota:** `theme-color` dan tingkah laku "tambah ke skrin utama" / kendiri ditakrifkan dengan lebih baik menggunakan [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest) (`<link rel="manifest">`). Tag meta `theme-color` masih boleh berfungsi sebagai sandaran untuk pelayar yang belum menyokong sifat `theme-color` manifes.
 
 ### Google Chrome
 
@@ -70,36 +77,3 @@ export const title = "Pelayar / Platform";
 <!-- Lumpuhkan gesaan terjemahan -->
 <meta name="google" content="notranslate" />
 ```
-
----
-
-### Microsoft Internet Explorer
-
-```html
-<!-- Paksa IE 8/9/10 untuk menggunakan enjin pemaparan terbaharunya -->
-<meta http-equiv="x-ua-compatible" content="ie=edge" />
-
-<!-- Lumpuhkan pengesanan automatik dan pemformatan yang berkemungkinan normbor telefon melalui sambungan penyemak imbas Skype Toolbar -->
-<meta name="skype_toolbar" content="skype_toolbar_parser_compatible" />
-
-<!-- Windows Tiles -->
-<meta name="msapplication-config" content="/browserconfig.xml" />
-```
-
-Penanda xml minimum yang diperlukan untuk `browserconfig.xml`:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<browserconfig>
-   <msapplication>
-     <tile>
-        <square70x70logo src="small.png"/>
-        <square150x150logo src="medium.png"/>
-        <wide310x150logo src="wide.png"/>
-        <square310x310logo src="large.png"/>
-     </tile>
-   </msapplication>
-</browserconfig>
-```
-
-- [Rujukan skema konfigurasi penyemak imbas](https://msdn.microsoft.com/en-us/library/dn320426.aspx)

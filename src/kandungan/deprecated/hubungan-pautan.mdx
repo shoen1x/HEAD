@@ -1,0 +1,36 @@
+---
+title: Hubungan Pautan
+order: 4
+---
+
+```html
+<!-- Pautan ke versi HTML AMP dokumen semasa -->
+<link rel="amphtml" href="https://example.com/path/to/amp-version.html" />
+```
+
+Google [mengalih keluar keperluan AMP daripada Cerita Teratas](https://developers.google.com/search/blog/2021/04/more-details-page-experience) pada tahun 2021 dan isyarat Pengalaman Halaman AMP telah dihentikan. Projek AMP itu sendiri sebahagian besarnya tidak aktif.
+
+```html
+<!-- Digunakan apabila perkhidmatan pihak ketiga digunakan untuk menyelenggara blog -->
+<link
+  rel="EditURI"
+  href="https://example.com/xmlrpc.php?rsd"
+  type="application/rsd+xml"
+  title="RSD"
+/>
+
+<!-- Membentuk komen automatik apabila blog WordPress lain memautkan ke blog atau siaran WordPress anda -->
+<link rel="pingback" href="https://example.com/xmlrpc.php" />
+```
+
+[RSD (Really Simple Discoverability)](https://en.wikipedia.org/wiki/Really_Simple_Discovery) telah digunakan oleh editor blog XML-RPC seperti Windows Live Writer (dihentikan pada 2017). Pingback XML-RPC telah [dilumpuhkan secara meluas secara lalai](https://make.wordpress.org/core/2015/09/30/xml-rpc-settings-in-4-4/) kerana penggunaannya dalam serangan amplifikasi DDoS. Gunakan [Webmention](https://www.w3.org/TR/webmention/) sebagai gantinya.
+
+```html
+<!-- Pautan ke dokumen yang menerangkan koleksi rekod, dokumen atau bahan lain yang mempunyai kepentingan sejarah -->
+<link rel="archives" href="https://example.com/archives/" />
+
+<!-- Pautan ke sumber peringkat tertinggi dalam struktur hierarki -->
+<link rel="index" href="https://example.com/article/" />
+```
+
+Kedua-dua `archives` dan `index` telah [dialih keluar daripada piawaian HTML](https://html.spec.whatwg.org/multipage/links.html#linkTypes) dan tidak lagi didaftarkan dalam [daftar perhubungan pautan IANA](https://www.iana.org/assignments/link-relations/link-relations.xhtml) untuk HTML.

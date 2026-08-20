@@ -6,6 +6,7 @@ const kandungan = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/kandungan/data" }),
   schema: z.object({
     title: z.string(),
+    order: z.number().optional(),
   }),
 });
 
@@ -16,6 +17,7 @@ const deprecated = defineCollection({
   }),
   schema: z.object({
     title: z.string(),
+    order: z.number().optional(),
   }),
 });
 

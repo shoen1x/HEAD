@@ -1,0 +1,36 @@
+---
+title: Media Sosial
+order: 6
+---
+
+```html
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@site_account" />
+<meta name="twitter:creator" content="@individual_account" />
+<meta name="twitter:url" content="https://example.com/page.html" />
+<meta name="twitter:title" content="Tajuk Kandungan" />
+<meta
+  name="twitter:description"
+  content="Huraian kandungan kurang daripada 200 aksara"
+/>
+<meta name="twitter:image" content="https://example.com/image.jpg" />
+<meta
+  name="twitter:image:alt"
+  content="Huraian teks imej yang menyampaikan sifat penting imej kepada pengguna yang cacat penglihatan. Maksimum 420 aksara."
+/>
+```
+
+X (dahulunya Twitter) kini kembali kepada tag [Open Graph](./README.md#open-graph) apabila tag `twitter:*` tiada, menjadikan penanda Kad Twitter khusus berlebihan untuk kebanyakan kes penggunaan. [Pengesah Kad Twitter](https://cards-dev.twitter.com/validator) telah dihentikan dan [dokumentasi Pembangun Twitter](https://dev.twitter.com/cards/getting-started) asal tidak lagi boleh diakses. Tag masih dihuraikan jika ada, tetapi tiada sebab untuk mengekalkan set berasingan bersama Open Graph.
+
+```html
+<!-- tidak membenarkan Twitter menggunakan maklumat tapak anda untuk tujuan pemperibadian -->
+<meta name="twitter:dnt" content="on" />
+```
+
+Sokongan Jangan Jejaki Twitter telah digugurkan secara efektif berikutan peralihan platform kepada X. [Dokumentasi pilihan privasi Twitter](https://dev.twitter.com/web/overview/privacy) yang asal tidak lagi boleh diakses, dan isyarat tersebut tidak dihormati dalam praktiknya.
+
+```html
+<meta property="fb:app_id" content="123456789" />
+```
+
+`fb:app_id` pada asalnya diperlukan untuk Wawasan/Wawasan Domain Facebook tetapi tidak lagi diperlukan untuk perkongsian Graf Terbuka. [Dokumentasi Perkongsian semasa](https://developers.facebook.com/docs/sharing/webmasters/) Meta tidak menyenaraikannya sebagai diperlukan, dan kebanyakan penghurai Graf Terbuka mengabaikannya.

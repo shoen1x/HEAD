@@ -13,7 +13,7 @@
 <div
   id="kandungan-card"
   {...restProps}
-  class="relative w-full overflow-hidden break-inside-avoid text-sm lg:text-base flex justify-start flex-col gap-2.5 lg:gap-4 bg-black/25 backdrop-blur-3xl p-6 lg:p-12 rounded-lg"
+  class="relative w-full mb-2 lg:mb-4 overflow-hidden break-inside-avoid text-sm lg:text-base flex justify-start flex-col gap-2.5 lg:gap-4 bg-black/25 backdrop-blur-3xl p-6 lg:p-12 rounded-lg"
 >
   <h1 class="font-bold">
     {tajuk}

@@ -1,0 +1,35 @@
+---
+title: Microsoft Internet Explorer
+order: 0
+---
+
+Internet Explorer telah [dibersarakan oleh Microsoft pada 15 Jun 2022](https://learn.microsoft.com/en-us/lifecycle/announcements/internet-explorer-11-end-of-support-on-windows-10). Semua tag khusus IE adalah usang.
+
+```html
+<!-- Paksa IE 8/9/10 untuk menggunakan enjin pemaparan terkininya -->
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+<!-- Lumpuhkan pengesanan automatik dan pemformatan nombor telefon yang mungkin oleh sambungan pelayar Skype Toolbar -->
+<meta name="skype_toolbar" content="skype_toolbar_parser_compatible" />
+
+<!-- Windows Tiles -->
+<meta name="msapplication-config" content="/browserconfig.xml" />
+```
+
+Penanda xml minimum yang diperlukan untuk `browserconfig.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square70x70logo src="small.png"/>
+            <square150x150logo src="medium.png"/>
+            <wide310x150logo src="wide.png"/>
+            <square310x310logo src="large.png"/>
+        </tile>
+    </msapplication>
+</browserconfig>
+```
+
+Live tiles telah dialih keluar daripada menu Mula Windows 11 dan tidak lagi dipaparkan oleh Edge.
